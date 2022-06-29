@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import FlashCard from "./pages/FlashCard";
+import FlashCardForm from "./pages/FlashCardForm";
+import FlashCardList from "./pages/FlashCardList";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [newCard, setNewCard] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <FlashCard />
+      <button onClick={() => setIsOpen(!isOpen)}>Lista fiszek</button>
+      {isOpen && <FlashCardList />}
+      <button onClick={() => setNewCard(!newCard)}>Dodaj fiszkę</button>
+      {newCard && <FlashCardForm />}
     </div>
   );
 }

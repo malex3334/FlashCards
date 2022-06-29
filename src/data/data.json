@@ -1,0 +1,18 @@
+[
+  {
+    "polish": ["nisko", "niski", "niskie"],
+    "english": "low"
+  },
+  {
+    "polish": ["wysoki", "wysoki", "wysoko"],
+    "english": "high"
+  },
+  {
+    "polish": ["duży", "duże", "duża"],
+    "english": "big"
+  },
+  {
+    "polish": ["mały", "małe", "mała"],
+    "english": "small"
+  }
+]

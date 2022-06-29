@@ -70,35 +70,44 @@ function FlashCard() {
   // console.log(dictionary[0]?.meanings[0].definitions[0].definition);
   // console.log(dictionary);
   return (
-    <div>
+    <div className="shadow-sm p-3 mb-5 mt-5 bg-white rounded">
       <h1>Fiszki PL/ENG</h1>
       <h4>Punkty: {points}</h4>
       <h5>Bez pomyłki: {streak}</h5>
-      <span style={{ fontSize: "25px" }}> {data[i].english}</span>
+      <div className="d-flex justify-content-center">
+        <div className="mt-5 mb-5">
+          <span style={{ fontSize: "30px" }}>{data[i].english}</span>
 
-      <form onSubmit={handleAnswerSubmit}>
-        <label></label>
-        <input
-          minLength="3"
-          required
-          ref={answerInput}
-          type="text"
-          onChange={(e) => setAnswer(e.target.value)}
-          value={answer}
-        />
-        <button className="btn btn-success">Sprawdź!</button>
-      </form>
-
-      <div>
-        <label>
+          <form onSubmit={handleAnswerSubmit}>
+            <label></label>
+            <input
+              className="mt-3"
+              minLength="3"
+              required
+              ref={answerInput}
+              type="text"
+              onChange={(e) => setAnswer(e.target.value)}
+              value={answer}
+            />
+            <button className="btn btn-success ms-2">Sprawdź!</button>
+          </form>
+        </div>
+      </div>
+      <div className="mt-5">
+        <label className="container p-2 bg-info">
           Wykorzystanie podpowiedzi obniża punkt za tę odpowiedź do 0.5!
         </label>
         <br />
-        <button className="btn btn-danger" onClick={() => setHint(true)}>
+        <button
+          className="mt-2 btn-sm btn-danger"
+          onClick={() => setHint(true)}
+        >
           Podpowiedź?
         </button>
         {hint && (
-          <div>{dictionary[0]?.meanings[0].definitions[0].definition}</div>
+          <div className="container p-4">
+            {dictionary[0]?.meanings[0].definitions[0].definition}
+          </div>
         )}
       </div>
     </div>

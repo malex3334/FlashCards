@@ -10,10 +10,12 @@ function App() {
   return (
     <div className="container">
       <FlashCard />
-      <button onClick={() => setIsOpen(!isOpen)}>Lista fiszek</button>
+      <div className="d-flex justify-content-center">
+        <button onClick={() => setIsOpen(!isOpen)}>Lista fiszek</button>
+        <button onClick={() => setNewCard(!newCard)}>Dodaj fiszkę</button>
+      </div>
       {isOpen && <FlashCardList />}
-      <button onClick={() => setNewCard(!newCard)}>Dodaj fiszkę</button>
-      {newCard && <FlashCardForm />}
+      {newCard && <FlashCardForm setNewCard={setNewCard} />}
     </div>
   );
 }

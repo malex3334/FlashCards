@@ -1,5 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { DataContext } from "../context/DataContext";
 import Data from "../data/data.json";
+import CorrectSound from "../sounds/correct.mp3";
+import WrongSound from "../sounds/wrong.mp3";
 
 function FlashCard() {
   const answerInput = useRef();
@@ -10,6 +13,15 @@ function FlashCard() {
   const [streak, setStreak] = useState(0);
   const [dictionary, setDictionary] = useState("");
   const [hint, setHint] = useState(false);
+  const [notification, setNotification] = useState("");
+  const { dark, setDark, handleToggleTheme } = useContext(DataContext);
+
+  console.log("darkmode", dark);
+
+  // audio sound
+  const correctSound = new Audio(CorrectSound);
+  correctSound.volume = 0.2;
+  const wrongSound = new Audio(WrongSound);
 
   // get random flashcard index
   const randomIndex = (e) => {
@@ -25,24 +37,30 @@ function FlashCard() {
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
         console.log("świetnie!");
+        correctSound.play();
 
         if (data[i].polish.includes(answer) && hint) {
           console.log("hint active");
           setPoints((prev) => prev - 0.5);
           setStreak((prev) => prev + 1);
+          correctSound.play();
         }
       } else {
         console.log("źle!");
         setStreak(0);
+        wrongSound.play();
       }
     };
+
+    // check answer
     isCorrect();
+    // get bew rabdin ubdex
     randomIndex();
-    // clear input
     // focus on input
     answerInput.current.focus();
     // reset hint
     setHint(false);
+    // clear input
     setAnswer("");
   };
 
@@ -61,44 +79,79 @@ function FlashCard() {
     setDictionary(parsedRes);
   };
 
-  const handleHint = (e) => {};
-
   useEffect(() => {
     fetchDescription(data[i].english);
   }, [i]);
 
-  // console.log(dictionary[0]?.meanings[0].definitions[0].definition);
-  // console.log(dictionary);
   return (
-    <div>
-      <h1>Fiszki PL/ENG</h1>
-      <h4>Punkty: {points}</h4>
-      <h5>Bez pomyłki: {streak}</h5>
-      <span style={{ fontSize: "25px" }}> {data[i].english}</span>
-
-      <form onSubmit={handleAnswerSubmit}>
-        <label></label>
-        <input
-          minLength="3"
-          required
-          ref={answerInput}
-          type="text"
-          onChange={(e) => setAnswer(e.target.value)}
-          value={answer}
-        />
-        <button className="btn btn-success">Sprawdź!</button>
-      </form>
-
-      <div>
-        <label>
+    <div
+      className={`shadow-sm p-5 mb-5 mt-5  rounded ${
+        dark ? "bg-dark" : "bg-light"
+      }`}
+    >
+      <button
+        onClick={handleToggleTheme}
+        className="btn btn-outline-primary w-20 "
+      >
+        Tryb nocny
+      </button>
+      <h1
+        className={`text-center  ${dark ? "text-light" : "text-dark"}`}
+        style={{ fontSize: "3.5rem" }}
+      >
+        Fiszki PL/ENG
+      </h1>
+      <div className={`${dark ? "text-light" : "text-dar"}`}>
+        <h4>Punkty: {points}</h4>
+        <h5>Bez pomyłki: {streak}</h5>
+      </div>
+      <div className="d-flex justify-content-center">
+        <div
+          className={`shadow ps-5 pe-5 pb-4 mb-2 mt-5 rounded ${
+            dark ? "border border-3 border-success" : "bg-success"
+          }`}
+        >
+          <p className="text-center ">{streak > 1 ? notification : null}</p>
+          <p className="text-centered text-white" style={{ fontSize: "4rem" }}>
+            {data[i].english}
+          </p>
+          <form
+            className="border-top border-3 border-light"
+            onSubmit={handleAnswerSubmit}
+          >
+            <input
+              className="mt-3"
+              minLength="3"
+              required
+              ref={answerInput}
+              type="text"
+              onChange={(e) => setAnswer(e.target.value.toLowerCase())}
+              value={answer}
+            />
+            <button className="btn btn-warning ms-2">Sprawdź!</button>
+          </form>
+        </div>
+      </div>
+      <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
+        <div className="d-flex justify-content-center">
+          <button
+            className="mt-2 mb-2 btn btn-danger"
+            onClick={() => setHint(true)}
+          >
+            Podpowiedź?
+          </button>
+        </div>
+        <label
+          className={`container p-2 ${
+            dark ? "border border-1 border-info " : "bg-info"
+          }`}
+        >
           Wykorzystanie podpowiedzi obniża punkt za tę odpowiedź do 0.5!
         </label>
-        <br />
-        <button className="btn btn-danger" onClick={() => setHint(true)}>
-          Podpowiedź?
-        </button>
         {hint && (
-          <div>{dictionary[0]?.meanings[0].definitions[0].definition}</div>
+          <div className="container p-4">
+            {dictionary[0]?.meanings[0].definitions[0].definition}
+          </div>
         )}
       </div>
     </div>

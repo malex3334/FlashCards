@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import Data from "../data/data.json";
+import React, { useContext, useState } from "react";
+import { DataContext } from "../context/DataContext";
 
 function FlashCardList() {
-  const [data, setData] = useState(Data);
+  const { data, setData } = useContext(DataContext);
+
   return (
     <ul>
       {data.map((item) => (

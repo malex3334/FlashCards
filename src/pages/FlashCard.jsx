@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { DataContext } from "../context/DataContext";
-import Data from "../data/data.json";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
 
@@ -89,12 +88,14 @@ function FlashCard() {
     >
       <button
         onClick={handleToggleTheme}
-        className="btn btn-outline-primary w-20 "
+        className="mb-2 btn btn-outline-primary w-20 "
       >
         Tryb nocny
       </button>
       <h1
-        className={`text-center  ${dark ? "text-light" : "text-dark"}`}
+        className={`mb-3 mt-3 text-center  ${
+          dark ? "text-light" : "text-dark"
+        }`}
         style={{ fontSize: "3.5rem" }}
       >
         Fiszki PL/ENG
@@ -103,6 +104,8 @@ function FlashCard() {
         <h4>Punkty: {points}</h4>
         <h5>Bez pomyłki: {streak}</h5>
       </div>
+
+      {/* ########## FLASHCARD BODY ######### */}
       <div className="d-flex justify-content-center">
         <div
           className={`shadow ps-5 pe-5 pb-4 mb-2 mt-5 rounded ${
@@ -118,7 +121,7 @@ function FlashCard() {
             onSubmit={handleAnswerSubmit}
           >
             <input
-              className="mt-3"
+              className="mt-3 mb-3"
               minLength="3"
               required
               ref={answerInput}

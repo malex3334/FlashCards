@@ -4,9 +4,13 @@ import Data from "../data/data.json";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
 
+//  wymyślić jak wywalić polskie znaki
+// normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
 function FlashCard() {
   const answerInput = useRef();
-  const [data, setData] = useState(Data);
+  // const [data, setData] = useState(Data);
+  const { data, setData } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
   const [points, setPoints] = useState(0);
@@ -15,8 +19,6 @@ function FlashCard() {
   const [hint, setHint] = useState(false);
   const [notification, setNotification] = useState("");
   const { dark, setDark, handleToggleTheme } = useContext(DataContext);
-
-  console.log("darkmode", dark);
 
   // audio sound
   const correctSound = new Audio(CorrectSound);
@@ -64,11 +66,6 @@ function FlashCard() {
     setAnswer("");
   };
 
-  if (data[0].polish.includes("nisko")) {
-    console.log(data[0].polish.includes(answer));
-    console.log(answer);
-  }
-
   // fetch dictionary data
 
   const fetchDescription = async (word) => {
@@ -83,11 +80,12 @@ function FlashCard() {
     fetchDescription(data[i].english);
   }, [i]);
 
+  // polskie znaki
+
   return (
     <div
-      className={`shadow-sm p-5 mb-5 mt-5  rounded ${
-        dark ? "bg-dark" : "bg-light"
-      }`}
+      className={`shadow-sm p-5 mb-5 mt-5 rounded 
+        ${dark ? "bg-dark" : "bg-light"}`}
     >
       <button
         onClick={handleToggleTheme}

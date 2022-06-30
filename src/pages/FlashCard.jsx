@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { DataContext } from "../context/DataContext";
 import Data from "../data/data.json";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
@@ -13,9 +14,11 @@ function FlashCard() {
   const [dictionary, setDictionary] = useState("");
   const [hint, setHint] = useState(false);
   const [notification, setNotification] = useState("");
+  const { dark, setDark, handleToggleTheme } = useContext(DataContext);
+
+  console.log("darkmode", dark);
 
   // audio sound
-
   const correctSound = new Audio(CorrectSound);
   correctSound.volume = 0.2;
   const wrongSound = new Audio(WrongSound);
@@ -76,26 +79,46 @@ function FlashCard() {
     setDictionary(parsedRes);
   };
 
-  const handleHint = (e) => {};
-
   useEffect(() => {
     fetchDescription(data[i].english);
   }, [i]);
 
-  // console.log(dictionary[0]?.meanings[0].definitions[0].definition);
-  // console.log(dictionary);
   return (
-    <div className="shadow-sm p-5 mb-5 mt-5 bg-white rounded">
-      <h1 className="text-center text ">Fiszki PL/ENG</h1>
-      <h4>Punkty: {points}</h4>
-      <h5>Bez pomyłki: {streak}</h5>
+    <div
+      className={`shadow-sm p-5 mb-5 mt-5  rounded ${
+        dark ? "bg-dark" : "bg-light"
+      }`}
+    >
+      <button
+        onClick={handleToggleTheme}
+        className="btn btn-outline-primary w-20 "
+      >
+        Tryb nocny
+      </button>
+      <h1
+        className={`text-center  ${dark ? "text-light" : "text-dark"}`}
+        style={{ fontSize: "3.5rem" }}
+      >
+        Fiszki PL/ENG
+      </h1>
+      <div className={`${dark ? "text-light" : "text-dar"}`}>
+        <h4>Punkty: {points}</h4>
+        <h5>Bez pomyłki: {streak}</h5>
+      </div>
       <div className="d-flex justify-content-center">
-        <div className="shadow ps-5 pe-5 pb-4 mb-5 mt-5 bg-success rounded">
-          <p className="text-center">{streak > 1 ? notification : null}</p>
-          <p className="text-centered text-white" style={{ fontSize: "5rem" }}>
+        <div
+          className={`shadow ps-5 pe-5 pb-4 mb-2 mt-5 rounded ${
+            dark ? "border border-3 border-success" : "bg-success"
+          }`}
+        >
+          <p className="text-center ">{streak > 1 ? notification : null}</p>
+          <p className="text-centered text-white" style={{ fontSize: "4rem" }}>
             {data[i].english}
           </p>
-          <form onSubmit={handleAnswerSubmit}>
+          <form
+            className="border-top border-3 border-light"
+            onSubmit={handleAnswerSubmit}
+          >
             <input
               className="mt-3"
               minLength="3"
@@ -109,17 +132,22 @@ function FlashCard() {
           </form>
         </div>
       </div>
-      <div className="mt-5">
-        <label className="container p-2 bg-info">
+      <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
+        <div className="d-flex justify-content-center">
+          <button
+            className="mt-2 mb-2 btn btn-danger"
+            onClick={() => setHint(true)}
+          >
+            Podpowiedź?
+          </button>
+        </div>
+        <label
+          className={`container p-2 ${
+            dark ? "border border-1 border-info " : "bg-info"
+          }`}
+        >
           Wykorzystanie podpowiedzi obniża punkt za tę odpowiedź do 0.5!
         </label>
-        <br />
-        <button
-          className="mt-2 btn-sm btn-danger"
-          onClick={() => setHint(true)}
-        >
-          Podpowiedź?
-        </button>
         {hint && (
           <div className="container p-4">
             {dictionary[0]?.meanings[0].definitions[0].definition}

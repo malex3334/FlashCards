@@ -8,11 +8,27 @@ function App() {
   const [newCard, setNewCard] = useState(false);
 
   return (
-    <div className="container">
+    <div className="container-sm p-5">
       <FlashCard />
       <div className="d-flex justify-content-center">
-        <button onClick={() => setIsOpen(!isOpen)}>Lista fiszek</button>
-        <button onClick={() => setNewCard(!newCard)}>Dodaj fiszkę</button>
+        <button
+          className="me-3 btn btn-warning"
+          onClick={() => {
+            setIsOpen(!isOpen);
+            setNewCard(false);
+          }}
+        >
+          Lista fiszek
+        </button>
+        <button
+          className="btn btn-warning"
+          onClick={() => {
+            setNewCard(!newCard);
+            setIsOpen(false);
+          }}
+        >
+          Dodaj fiszkę
+        </button>
       </div>
       {isOpen && <FlashCardList />}
       {newCard && <FlashCardForm setNewCard={setNewCard} />}

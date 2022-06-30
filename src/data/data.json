@@ -14,5 +14,37 @@
   {
     "polish": ["mały", "małe", "mała"],
     "english": "small"
+  },
+  {
+    "polish": ["samochód", "auto"],
+    "english": "car"
+  },
+  {
+    "polish": ["dom"],
+    "english": "house"
+  },
+  {
+    "polish": ["karty"],
+    "english": "cards"
+  },
+  {
+    "polish": ["świat"],
+    "english": "world"
+  },
+  {
+    "polish": ["film"],
+    "english": "movie"
+  },
+  {
+    "polish": ["muzyka"],
+    "english": "music"
+  },
+  {
+    "polish": ["teatr"],
+    "english": "theater"
+  },
+  {
+    "polish": ["kino"],
+    "english": "cinema"
   }
 ]

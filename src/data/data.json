@@ -46,5 +46,38 @@
   {
     "polish": ["kino"],
     "english": "cinema"
+  },
+  {
+    "polish": ["szkoła"],
+    "english": "school"
+  },
+
+  {
+    "polish": ["lekcja", "nauczka"],
+    "english": "lesson"
+  },
+  {
+    "polish": ["wycieczka"],
+    "english": "trip"
+  },
+  {
+    "polish": ["podróż", "wycieczka"],
+    "english": "journey"
+  },
+  {
+    "polish": ["miska"],
+    "english": "bowl"
+  },
+  {
+    "polish": ["kabel", "przewód"],
+    "english": "cable"
+  },
+  {
+    "polish": ["klucz"],
+    "english": "key"
+  },
+  {
+    "polish": ["biurko"],
+    "english": "desk"
   }
 ]

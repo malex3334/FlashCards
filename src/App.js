@@ -12,7 +12,7 @@ function App() {
     <div className="container p-0 p-sm-3">
       <FlashCard />
 
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center mb-5">
         <button
           className="me-3 btn btn-warning"
           onClick={() => {
@@ -32,6 +32,7 @@ function App() {
           Dodaj fiszkę
         </button>
       </div>
+
       {isOpen && <FlashCardList />}
       {newCard && <FlashCardForm setNewCard={setNewCard} />}
     </div>

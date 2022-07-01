@@ -8,7 +8,7 @@ function App() {
   const [newCard, setNewCard] = useState(false);
 
   return (
-    <div className="container-sm p-5">
+    <div className="container-sm p-0 p-sm-3">
       <FlashCard />
       <div className="d-flex justify-content-center">
         <button

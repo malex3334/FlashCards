@@ -8,7 +8,10 @@ function FlashCardList() {
     <ul>
       {data.map((item) => (
         <li key={item.polish[0]}>
-          {item.english} {"->"} {item.polish[0]}
+          {item.english} {"->"}{" "}
+          {item.polish.map((arrayItem) => (
+            <span>{arrayItem}, </span>
+          ))}
         </li>
       ))}
     </ul>

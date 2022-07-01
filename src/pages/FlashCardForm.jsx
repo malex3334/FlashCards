@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { DataContext } from "../context/DataContext";
 // import Data from "../data/data.json";
 
 export default function FlashCardForm({ setNewCard }) {
+  const inputRef = useRef();
   const { data, setData } = useContext(DataContext);
   // const [data, setData] = useState(Data);
   const [english, setEnglish] = useState("");
@@ -14,6 +15,7 @@ export default function FlashCardForm({ setNewCard }) {
     setData((prevState) => [...prevState, { polish: [polish], english }]);
     setEnglish("");
     setPolish("");
+    inputRef.current.focus();
   };
   console.log(data);
 
@@ -30,6 +32,7 @@ export default function FlashCardForm({ setNewCard }) {
           <label>
             <span>Słówko:</span>
             <input
+              ref={inputRef}
               type="text"
               onChange={(e) => setEnglish(e.target.value.toLowerCase())}
               value={english}
@@ -39,7 +42,9 @@ export default function FlashCardForm({ setNewCard }) {
             <span>Tłumaczenie:</span>
             <input
               type="text"
-              onChange={(e) => setPolish(e.target.value.toLowerCase())}
+              onChange={(e) =>
+                setPolish(e.target.value.toLowerCase().split(/[ ,]+/))
+              }
               value={polish}
             />
           </label>

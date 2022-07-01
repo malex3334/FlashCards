@@ -34,13 +34,26 @@ function FlashCard() {
     e.preventDefault();
 
     const isCorrect = () => {
-      if (data[i].polish.includes(answer)) {
+      if (
+        data[i].polish.includes(answer) ||
+        data[i].polish
+          .map((item) => item.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+          .includes(answer)
+      ) {
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
         console.log("świetnie!");
         correctSound.play();
 
-        if (data[i].polish.includes(answer) && hint) {
+        if (
+          (data[i].polish.includes(answer) && hint) ||
+          (data[i].polish
+            .map((item) =>
+              item.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            )
+            .includes(answer) &&
+            hint)
+        ) {
           console.log("hint active");
           setPoints((prev) => prev - 0.5);
           setStreak((prev) => prev + 1);

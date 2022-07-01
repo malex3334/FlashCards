@@ -3,6 +3,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+body {
+  font-family: "Lato", sans-serif;
+}
+
 /* .container {
   border: solid black 2px;
 } */
@@ -18,5 +22,11 @@
 
   to {
     transform: rotate(0);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 900px;
   }
 }

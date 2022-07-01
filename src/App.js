@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Hints from "./components/Hints";
+
 import FlashCard from "./pages/FlashCard";
 import FlashCardForm from "./pages/FlashCardForm";
 import FlashCardList from "./pages/FlashCardList";
@@ -9,7 +9,7 @@ function App() {
   const [newCard, setNewCard] = useState(false);
 
   return (
-    <div className="container-sm p-0 p-sm-3">
+    <div className="container p-0 p-sm-3">
       <FlashCard />
 
       <div className="d-flex justify-content-center">

@@ -39,7 +39,7 @@ const Hints = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
-                fill="currentColor"
+                fill={dark ? "white" : "black"}
                 className="bi bi-play"
                 viewBox="0 0 16 16"
               >
@@ -47,6 +47,7 @@ const Hints = () => {
               </svg>
             </button>
           </div>
+
           <p>
             <span className="text-muted font-italic">
               {dictionary[0]?.meanings[0]?.partOfSpeech}:{" "}

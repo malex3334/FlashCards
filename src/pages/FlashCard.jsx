@@ -3,6 +3,7 @@ import { DataContext } from "../context/DataContext";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
 import Hints from "../components/Hints";
+import { ReactComponent as UKFlag } from "../utils/uk.svg";
 
 //  wymyślić jak wywalić polskie znaki
 // normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -104,15 +105,14 @@ function FlashCard() {
         onClick={handleToggleTheme}
         className="mb-2 btn btn-outline-primary w-20 "
       >
-        Tryb nocny
+        {dark ? "Tryb dzienny" : "Tryb nocny"}
       </button>
       <h1
-        className={`mb-3 mt-3 text-center  ${
+        className={`display-2 mb-3 mt-3 text-center  ${
           dark ? "text-light" : "text-dark"
         }`}
-        style={{ fontSize: "3.5rem" }}
       >
-        Fiszki PL/ENG
+        Fiszki <UKFlag style={{ width: "80px", height: "80px" }} />
       </h1>
       <div className={`${dark ? "text-light" : "text-dar"}`}>
         <h4>Punkty: {points}</h4>
@@ -122,20 +122,23 @@ function FlashCard() {
       {/* ########## FLASHCARD BODY ######### */}
       <div className="d-flex justify-content-center">
         <div
-          className={`shadow ps-5 pe-5 pb-4 mb-2 mt-5 rounded ${
+          className={`shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded ${
             dark ? "border border-3 border-success" : "bg-success"
           }`}
         >
           <p className="text-center ">{streak > 1 ? notification : null}</p>
-          <p className="text-centered text-white" style={{ fontSize: "4rem" }}>
+          <p
+            className="text-centered text-white display-3"
+            // style={{ fontSize: "4rem" }}
+          >
             {data[i].english}
           </p>
           <form
-            className="border-top border-3 border-light"
+            className="border-top border-3 border-light d-md-flex align-items-center"
             onSubmit={handleAnswerSubmit}
           >
             <input
-              className="mt-3 mb-3"
+              className="mt-3 mb-3 form-control form-control-sm"
               minLength="3"
               required
               ref={answerInput}

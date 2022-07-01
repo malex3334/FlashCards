@@ -4,7 +4,7 @@ import { DataContext } from "../context/DataContext";
 
 export default function FlashCardForm({ setNewCard }) {
   const inputRef = useRef();
-  const { data, setData } = useContext(DataContext);
+  const { data, setData, dark } = useContext(DataContext);
   // const [data, setData] = useState(Data);
   const [english, setEnglish] = useState("");
   const [polish, setPolish] = useState("");
@@ -20,7 +20,11 @@ export default function FlashCardForm({ setNewCard }) {
   };
 
   return (
-    <div className="modal-dialog modal-content">
+    <div
+      className={`modal-dialog modal-content ${
+        dark ? "text-light bg-dark" : "text-dark bg-light"
+      }`}
+    >
       <div className="modal-header">
         <h5 className="modal-title">Dodaj fiszkę:</h5>
         <button className="btn" onClick={(e) => setNewCard(false)}>
@@ -28,19 +32,25 @@ export default function FlashCardForm({ setNewCard }) {
         </button>
       </div>
       <div className="modal-body">
-        <form onSubmit={handleSubmit}>
+        <form className="form-group" onSubmit={handleSubmit}>
           <label>
             <span>Słówko:</span>
             <input
+              className="form-control"
+              required
+              minLength={3}
               ref={inputRef}
               type="text"
               onChange={(e) => setEnglish(e.target.value.toLowerCase())}
               value={english}
             />
           </label>
-          <label>
+          <label className="mb-3 ms-3">
             <span>Tłumaczenie:</span>
             <input
+              className="form-control"
+              required
+              minLength={3}
               type="text"
               onChange={(e) =>
                 setPolish(e.target.value.toLowerCase().split(/[ ,]+/))

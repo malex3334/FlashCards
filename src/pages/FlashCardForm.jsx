@@ -27,7 +27,10 @@ export default function FlashCardForm({ setNewCard }) {
     >
       <div className="modal-header">
         <h5 className="modal-title">Dodaj fiszkę:</h5>
-        <button className="btn" onClick={(e) => setNewCard(false)}>
+        <button
+          className={`btn ${dark ? "text-light" : "text-dark"}`}
+          onClick={(e) => setNewCard(false)}
+        >
           &times;
         </button>
       </div>

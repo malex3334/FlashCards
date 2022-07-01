@@ -5,7 +5,7 @@ export const DataContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [data, setData] = useState(Data);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [hint, setHint] = useState(false);
   const [dictionary, setDictionary] = useState("");
   // change theme

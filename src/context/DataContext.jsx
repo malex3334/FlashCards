@@ -6,7 +6,8 @@ export const DataContext = createContext();
 export function ThemeProvider({ children }) {
   const [data, setData] = useState(Data);
   const [dark, setDark] = useState(false);
-
+  const [hint, setHint] = useState(false);
+  const [dictionary, setDictionary] = useState("");
   // change theme
   const handleToggleTheme = () => {
     setDark(!dark);
@@ -15,7 +16,17 @@ export function ThemeProvider({ children }) {
 
   return (
     <DataContext.Provider
-      value={{ dark, setDark, handleToggleTheme, data, setData }}
+      value={{
+        dark,
+        setDark,
+        handleToggleTheme,
+        data,
+        setData,
+        hint,
+        setHint,
+        dictionary,
+        setDictionary,
+      }}
     >
       {children}
     </DataContext.Provider>

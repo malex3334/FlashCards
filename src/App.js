@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Hints from "./components/Hints";
 import FlashCard from "./pages/FlashCard";
 import FlashCardForm from "./pages/FlashCardForm";
 import FlashCardList from "./pages/FlashCardList";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div className="container-sm p-0 p-sm-3">
       <FlashCard />
+
       <div className="d-flex justify-content-center">
         <button
           className="me-3 btn btn-warning"

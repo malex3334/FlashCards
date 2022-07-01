@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
+import Hints from "../components/Hints";
 
 //  wymyślić jak wywalić polskie znaki
 // normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -9,13 +10,13 @@ import WrongSound from "../sounds/wrong.mp3";
 function FlashCard() {
   const answerInput = useRef();
   // const [data, setData] = useState(Data);
-  const { data, setData } = useContext(DataContext);
+  const { data, setData, hint, setHint, dictionary, setDictionary } =
+    useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
   const [points, setPoints] = useState(0);
   const [streak, setStreak] = useState(0);
-  const [dictionary, setDictionary] = useState("");
-  const [hint, setHint] = useState(false);
+
   const [notification, setNotification] = useState("");
   const { dark, setDark, handleToggleTheme } = useContext(DataContext);
 
@@ -146,28 +147,7 @@ function FlashCard() {
           </form>
         </div>
       </div>
-      <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
-        <div className="d-flex justify-content-center">
-          <button
-            className="mt-2 mb-2 btn btn-danger"
-            onClick={() => setHint(true)}
-          >
-            Podpowiedź?
-          </button>
-        </div>
-        <label
-          className={`container p-2 ${
-            dark ? "border border-1 border-info " : "bg-info"
-          }`}
-        >
-          Wykorzystanie podpowiedzi obniża punkt za tę odpowiedź do 0.5!
-        </label>
-        {hint && (
-          <div className="container p-4">
-            {dictionary[0]?.meanings[0].definitions[0].definition}
-          </div>
-        )}
-      </div>
+      <Hints />
     </div>
   );
 }

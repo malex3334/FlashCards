@@ -12,12 +12,12 @@ export default function FlashCardForm({ setNewCard }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(english, polish);
-    setData((prevState) => [...prevState, { polish: [polish], english }]);
+    setData((prevState) => [...prevState, { polish, english }]);
+    console.log(data);
     setEnglish("");
     setPolish("");
     inputRef.current.focus();
   };
-  console.log(data);
 
   return (
     <div className="modal-dialog modal-content">

@@ -98,7 +98,7 @@ function FlashCard() {
 
   return (
     <div
-      className={`shadow-sm p-5 mb-5 mt-5 rounded 
+      className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded 
         ${dark ? "bg-dark" : "bg-light"}`}
     >
       <button

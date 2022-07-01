@@ -21,7 +21,7 @@ export default function FlashCardForm({ setNewCard }) {
 
   return (
     <div
-      className={`modal-dialog modal-content ${
+      className={`mx-auto modal-dialog modal-content ${
         dark ? "text-light bg-dark" : "text-dark bg-light"
       }`}
     >

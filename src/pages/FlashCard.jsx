@@ -41,35 +41,45 @@ function FlashCard() {
         return item.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       };
 
+      // ANSWER CORRECT, HINTS AND ANSWER OFF
       if (
-        data[i].polish.includes(answer) ||
-        data[i].polish.map((item) => normalizeIt(item)).includes(answer)
+        (data[i].polish.includes(answer) && !showAnswer && !hint) ||
+        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+          !showAnswer &&
+          !hint)
       ) {
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
         correctSound.play();
 
-        if (
-          (data[i].polish.includes(answer) && hint) ||
-          !showAnswer ||
-          (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
-            hint)
-        ) {
-          console.log("hint active");
-          setPoints((prev) => prev - 0.5);
-          setStreak((prev) => prev + 1);
-          correctSound.play();
-        }
-        if (
-          (data[i].polish.includes(answer) && showAnswer) ||
-          (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
-            showAnswer)
-        ) {
-          console.log("showAnswer active");
-          setPoints((prev) => prev - 1);
-          setStreak((prev) => prev - 1);
-          correctSound.play();
-        }
+        // ANSWER CORRECT, ONLY HINT ON
+      } else if (
+        (data[i].polish.includes(answer) && showAnswer && !hint) ||
+        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+          showAnswer &&
+          !hint)
+      ) {
+        correctSound.play();
+
+        //  ANSWER CORRECT, ONLY ANSWER ON
+      } else if (
+        (data[i].polish.includes(answer) && !showAnswer && hint) ||
+        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+          !showAnswer &&
+          hint)
+      ) {
+        setPoints((prev) => prev + 0.5);
+        setStreak((prev) => prev + 1);
+        correctSound.play();
+
+        // ANSWER CORRECT, ANSWER AND HINT ON
+      } else if (
+        (data[i].polish.includes(answer) && showAnswer && hint) ||
+        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+          showAnswer &&
+          hint)
+      ) {
+        correctSound.play();
       } else {
         setStreak(0);
         wrongSound.play();
@@ -125,7 +135,7 @@ function FlashCard() {
       </h1>
       <div className={`${dark ? "text-light" : "text-dar"}`}>
         <h4>Punkty: {points}</h4>
-        <h5>Bez pomyłki: {streak}</h5>
+        <h5>Seria: {streak}</h5>
       </div>
 
       {/* ########## FLASHCARD BODY ######### */}

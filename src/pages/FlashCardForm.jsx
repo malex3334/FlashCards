@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { Modal } from "react-bootstrap";
 // import Data from "../data/data.json";
@@ -12,11 +12,18 @@ export default function FlashCardForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData((prevState) => [...prevState, { polish, english }]);
+    setData((prevState) => [
+      ...prevState,
+      { id: Math.floor(Math.random() * 99999 - 20), polish, english },
+    ]);
     setEnglish("");
     setPolish("");
     inputRef.current.focus();
   };
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [handleSubmit]);
 
   return (
     <Modal show={newCard} onHide={() => setNewCard(false)}>

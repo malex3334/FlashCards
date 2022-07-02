@@ -111,7 +111,7 @@ function FlashCard() {
   };
 
   useEffect(() => {
-    fetchDescription(data[i].english);
+    fetchDescription(data && data[i]?.english);
   }, [i]);
 
   // polskie znaki
@@ -119,7 +119,7 @@ function FlashCard() {
   return (
     <div
       className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded 
-        ${dark ? "bg-dark" : "bg-light"}`}
+        ${dark ? "bg-dark" : "bg-white"}`}
     >
       <button
         onClick={handleToggleTheme}

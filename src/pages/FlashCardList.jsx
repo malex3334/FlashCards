@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { DataContext } from "../context/DataContext";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 
@@ -12,6 +12,10 @@ function FlashCardList() {
       })
     );
   };
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [handleDelete]);
 
   return (
     <div

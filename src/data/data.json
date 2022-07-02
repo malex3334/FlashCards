@@ -1,5 +1,10 @@
 [
-  { "id": 1, "polish": ["nisko", "niski", "niskie"], "english": "low" },
+  {
+    "id": 1,
+    "polish": ["nisko", "niski", "niskie"],
+    "english": "low",
+    "topic": "szkoła"
+  },
   { "id": 2, "polish": ["wysoki", "wysoki", "wysoko"], "english": "high" },
   { "id": 3, "polish": ["duży", "duże", "duża"], "english": "big" },
   { "id": 4, "polish": ["mały", "małe", "mała"], "english": "small" },

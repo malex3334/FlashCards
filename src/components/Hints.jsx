@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 
 const Hints = () => {
   const { dark, hint, setHint, dictionary } = useContext(DataContext);
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const audio = new Audio(
     !dictionary[0]?.phonetics[0]?.audio
@@ -12,7 +13,15 @@ const Hints = () => {
 
   return (
     <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center align-items-center ">
+        {!infoOpen && (
+          <button
+            onClick={() => setInfoOpen(true)}
+            className="btn btn-info me-3"
+          >
+            Zasady
+          </button>
+        )}
         <button
           className="mt-2 mb-2 btn btn-danger"
           onClick={() => setHint(true)}
@@ -20,13 +29,28 @@ const Hints = () => {
           Podpowiedź?
         </button>
       </div>
-      <label
-        className={`container p-2 ${
-          dark ? "border border-1 border-info " : "bg-info"
-        }`}
-      >
-        Wykorzystanie podpowiedzi obniża punkt za tę odpowiedź do 0.5!
-      </label>
+      {infoOpen && (
+        <label
+          className={`container p-2 d-flex justify-content-between  align-items-start ${
+            dark ? "border border-1 border-info " : "bg-info"
+          }`}
+        >
+          <div>
+            <ul>
+              <li>Poprawna odpowiedź = 1 pkt.</li>
+              <li>Poprawna odpowiedź z podpowiedzią = 0.5 pkt.</li>
+              <li>Sprawdzenie odpowiedzi = 0 pkt.</li>
+            </ul>
+          </div>
+          <button
+            onClick={() => setInfoOpen(false)}
+            className="btn btn-sm btn-danger"
+          >
+            &times;
+          </button>
+        </label>
+      )}
+
       {hint && (
         <div className="container p-3">
           <div className="d-flex">

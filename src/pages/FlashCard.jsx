@@ -4,6 +4,7 @@ import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
 import Hints from "../components/Hints";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
+import { ReactComponent as PLFlag } from "../utils/pl.svg";
 
 //  wymyślić jak wywalić polskie znaki
 // normalize("NFD").replace(/[\u0300-\u036f]/g, "")
@@ -161,8 +162,9 @@ function FlashCard() {
               </>
             )}
             {showAnswer && (
-              <p className="text-centered text-muted display-3">
-                {data && data[i]?.polish[0]}
+              <p className="text-centered text-light display-3">
+                {data && data[i]?.polish[0]}{" "}
+                <PLFlag style={{ width: "40px" }} />
               </p>
             )}
           </div>

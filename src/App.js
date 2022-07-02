@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataContext } from "./context/DataContext";
 
 import FlashCard from "./pages/FlashCard";
 import FlashCardForm from "./pages/FlashCardForm";
@@ -6,7 +7,7 @@ import FlashCardList from "./pages/FlashCardList";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [newCard, setNewCard] = useState(false);
+  const { newCard, setNewCard } = useContext(DataContext);
 
   return (
     <div className="container p-0 p-sm-3">
@@ -34,7 +35,8 @@ function App() {
       </div>
 
       {isOpen && <FlashCardList />}
-      {newCard && <FlashCardForm setNewCard={setNewCard} />}
+
+      {newCard && <FlashCardForm />}
     </div>
   );
 }

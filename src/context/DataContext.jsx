@@ -7,6 +7,7 @@ export function ThemeProvider({ children }) {
   const [data, setData] = useState(Data);
   const [dark, setDark] = useState(true);
   const [hint, setHint] = useState(false);
+  const [newCard, setNewCard] = useState(false);
   const [dictionary, setDictionary] = useState("");
   // change theme
   const handleToggleTheme = () => {
@@ -26,6 +27,8 @@ export function ThemeProvider({ children }) {
         setHint,
         dictionary,
         setDictionary,
+        newCard,
+        setNewCard,
       }}
     >
       {children}

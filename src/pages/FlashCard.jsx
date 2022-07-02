@@ -10,13 +10,13 @@ import { ReactComponent as UKFlag } from "../utils/uk.svg";
 
 function FlashCard() {
   const answerInput = useRef();
-  // const [data, setData] = useState(Data);
   const { data, setData, hint, setHint, dictionary, setDictionary } =
     useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
   const [points, setPoints] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const [notification, setNotification] = useState("");
   const { dark, setDark, handleToggleTheme } = useContext(DataContext);
@@ -36,24 +36,23 @@ function FlashCard() {
     e.preventDefault();
 
     const isCorrect = () => {
+      // todo - make it simpler...
+      const normalizeIt = (item) => {
+        return item.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      };
+
       if (
         data[i].polish.includes(answer) ||
-        data[i].polish
-          .map((item) => item.normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
-          .includes(answer)
+        data[i].polish.map((item) => normalizeIt(item)).includes(answer)
       ) {
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
-        console.log("świetnie!");
         correctSound.play();
 
         if (
           (data[i].polish.includes(answer) && hint) ||
-          (data[i].polish
-            .map((item) =>
-              item.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            )
-            .includes(answer) &&
+          !showAnswer ||
+          (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
             hint)
         ) {
           console.log("hint active");
@@ -61,8 +60,17 @@ function FlashCard() {
           setStreak((prev) => prev + 1);
           correctSound.play();
         }
+        if (
+          (data[i].polish.includes(answer) && showAnswer) ||
+          (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+            showAnswer)
+        ) {
+          console.log("showAnswer active");
+          setPoints((prev) => prev - 1);
+          setStreak((prev) => prev - 1);
+          correctSound.play();
+        }
       } else {
-        console.log("źle!");
         setStreak(0);
         wrongSound.play();
       }
@@ -78,6 +86,7 @@ function FlashCard() {
     setHint(false);
     // clear input
     setAnswer("");
+    setShowAnswer(false);
   };
 
   // fetch dictionary data
@@ -127,12 +136,26 @@ function FlashCard() {
           }`}
         >
           <p className="text-center ">{streak > 1 ? notification : null}</p>
-          <p
-            className="text-centered text-white display-3"
-            // style={{ fontSize: "4rem" }}
-          >
-            {data[i].english}
-          </p>
+          <div className="d-flex align-items-center text-centered-text-white display-3">
+            {!showAnswer && (
+              <>
+                <p className="text-centered text-white display-3">
+                  {data[i].english}
+                </p>
+                <button
+                  onClick={() => setShowAnswer(true)}
+                  className="btn btn-sm btn-warning ms-4 "
+                >
+                  odp
+                </button>
+              </>
+            )}
+            {showAnswer && (
+              <p className="text-centered text-muted display-3">
+                {data[i].polish[0]}
+              </p>
+            )}
+          </div>
           <form
             className="border-top border-3 border-light d-md-flex align-items-center"
             onSubmit={handleAnswerSubmit}

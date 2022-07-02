@@ -12,9 +12,7 @@ export default function FlashCardForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(english, polish);
     setData((prevState) => [...prevState, { polish, english }]);
-    console.log(data);
     setEnglish("");
     setPolish("");
     inputRef.current.focus();
@@ -63,7 +61,8 @@ export default function FlashCardForm() {
                 value={polish}
               />
             </label>
-            <button className="btn btn-success">Dodaj</button>
+            <button className="btn btn-success me-3">Dodaj</button>
+            <button className="btn btn-warning">Zamknij</button>
           </form>
         </div>
       </div>

@@ -3,14 +3,12 @@ import { DataContext } from "../context/DataContext";
 
 const Hints = () => {
   const { dark, hint, setHint, dictionary } = useContext(DataContext);
-  console.log(dictionary);
 
   const audio = new Audio(
     !dictionary[0]?.phonetics[0]?.audio
       ? dictionary[0]?.phonetics[1]?.audio
       : dictionary[0]?.phonetics[0]?.audio
   );
-  console.log(audio.src);
 
   return (
     <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>

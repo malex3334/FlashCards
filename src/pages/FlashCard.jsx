@@ -150,7 +150,7 @@ function FlashCard() {
             {!showAnswer && (
               <>
                 <p className="text-centered text-white display-3">
-                  {data[i].english}
+                  {data && data[i]?.english}
                 </p>
                 <button
                   onClick={() => setShowAnswer(true)}
@@ -162,7 +162,7 @@ function FlashCard() {
             )}
             {showAnswer && (
               <p className="text-centered text-muted display-3">
-                {data[i].polish[0]}
+                {data && data[i]?.polish[0]}
               </p>
             )}
           </div>

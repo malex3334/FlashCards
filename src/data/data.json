@@ -1,83 +1,22 @@
 [
-  {
-    "polish": ["nisko", "niski", "niskie"],
-    "english": "low"
-  },
-  {
-    "polish": ["wysoki", "wysoki", "wysoko"],
-    "english": "high"
-  },
-  {
-    "polish": ["duży", "duże", "duża"],
-    "english": "big"
-  },
-  {
-    "polish": ["mały", "małe", "mała"],
-    "english": "small"
-  },
-  {
-    "polish": ["samochód", "auto"],
-    "english": "car"
-  },
-  {
-    "polish": ["dom"],
-    "english": "house"
-  },
-  {
-    "polish": ["karty"],
-    "english": "cards"
-  },
-  {
-    "polish": ["świat"],
-    "english": "world"
-  },
-  {
-    "polish": ["film"],
-    "english": "movie"
-  },
-  {
-    "polish": ["muzyka"],
-    "english": "music"
-  },
-  {
-    "polish": ["teatr"],
-    "english": "theater"
-  },
-  {
-    "polish": ["kino"],
-    "english": "cinema"
-  },
-  {
-    "polish": ["szkoła"],
-    "english": "school"
-  },
-
-  {
-    "polish": ["lekcja", "nauczka"],
-    "english": "lesson"
-  },
-  {
-    "polish": ["wycieczka"],
-    "english": "trip"
-  },
-  {
-    "polish": ["podróż", "wycieczka"],
-    "english": "journey"
-  },
-  {
-    "polish": ["miska"],
-    "english": "bowl"
-  },
-  {
-    "polish": ["kabel", "przewód"],
-    "english": "cable"
-  },
-  {
-    "polish": ["klucz"],
-    "english": "key"
-  },
-  {
-    "polish": ["biurko"],
-    "english": "desk"
-  }
+  { "id": 1, "polish": ["nisko", "niski", "niskie"], "english": "low" },
+  { "id": 2, "polish": ["wysoki", "wysoki", "wysoko"], "english": "high" },
+  { "id": 3, "polish": ["duży", "duże", "duża"], "english": "big" },
+  { "id": 4, "polish": ["mały", "małe", "mała"], "english": "small" },
+  { "id": 5, "polish": ["samochód", "auto"], "english": "car" },
+  { "id": 6, "polish": ["dom"], "english": "house" },
+  { "id": 7, "polish": ["karty"], "english": "cards" },
+  { "id": 8, "polish": ["świat"], "english": "world" },
+  { "id": 9, "polish": ["film"], "english": "movie" },
+  { "id": 10, "polish": ["muzyka"], "english": "music" },
+  { "id": 11, "polish": ["teatr"], "english": "theater" },
+  { "id": 12, "polish": ["kino"], "english": "cinema" },
+  { "id": 13, "polish": ["szkoła"], "english": "school" },
+  { "id": 14, "polish": ["lekcja", "nauczka"], "english": "lesson" },
+  { "id": 15, "polish": ["wycieczka"], "english": "trip" },
+  { "id": 16, "polish": ["podróż", "wycieczka"], "english": "journey" },
+  { "id": 17, "polish": ["miska"], "english": "bowl" },
+  { "id": 18, "polish": ["kabel", "przewód"], "english": "cable" },
+  { "id": 19, "polish": ["klucz"], "english": "key" },
+  { "id": 20, "polish": ["biurko"], "english": "desk" }
 ]

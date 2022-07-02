@@ -62,7 +62,12 @@ export default function FlashCardForm() {
               />
             </label>
             <button className="btn btn-success me-3">Dodaj</button>
-            <button className="btn btn-warning">Zamknij</button>
+            <button
+              onClick={() => setNewCard(false)}
+              className="btn btn-warning"
+            >
+              Zamknij
+            </button>
           </form>
         </div>
       </div>

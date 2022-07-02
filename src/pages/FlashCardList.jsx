@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { DataContext } from "../context/DataContext";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
+import { ReactComponent as PLFlag } from "../utils/pl.svg";
+import Data from "../data/data.json";
 
 function FlashCardList() {
   const { data, setData, dark } = useContext(DataContext);
@@ -11,6 +13,14 @@ function FlashCardList() {
         return ex.id !== id;
       })
     );
+  };
+
+  const handleReset = (e) => {
+    if (window.confirm("Na pewno zresetować bazę fiszek?")) {
+      setData(Data);
+    } else {
+      return;
+    }
   };
 
   useEffect(() => {
@@ -42,6 +52,9 @@ function FlashCardList() {
               </button>
               <UKFlag style={{ height: "10px", marginRight: "10px" }} />
               {item.english} &rarr;{" "}
+              <span>
+                <PLFlag className="me-2" style={{ height: "10px" }} />
+              </span>
               {item.polish.map((arrayItem) => (
                 <span
                   className="fs-5 fst-italic text-muted"
@@ -57,6 +70,9 @@ function FlashCardList() {
           <p>Brak fiszek do wyświetlenia</p>
         )}
       </ul>
+      <button onClick={handleReset} className="btn btn-danger">
+        Zresetuj wszystkie
+      </button>
     </div>
   );
 }

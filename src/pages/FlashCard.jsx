@@ -29,7 +29,7 @@ function FlashCard() {
 
   // get random flashcard index
   const randomIndex = (e) => {
-    const newIndex = Math.floor(Math.random() * (data.length - 0));
+    const newIndex = Math.floor(Math.random() * data.length);
     setI(newIndex);
   };
 

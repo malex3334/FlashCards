@@ -6,7 +6,6 @@ import { Modal } from "react-bootstrap";
 export default function FlashCardForm() {
   const inputRef = useRef();
   const { data, setData, dark, newCard, setNewCard } = useContext(DataContext);
-  // const [data, setData] = useState(Data);
   const [english, setEnglish] = useState("");
   const [polish, setPolish] = useState("");
 

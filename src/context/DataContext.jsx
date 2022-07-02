@@ -12,7 +12,6 @@ export function ThemeProvider({ children }) {
   // change theme
   const handleToggleTheme = () => {
     setDark(!dark);
-    console.log(dark);
   };
 
   return (

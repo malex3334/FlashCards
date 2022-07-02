@@ -6,7 +6,6 @@ function FlashCardList() {
   const { data, setData, dark } = useContext(DataContext);
 
   const handleDelete = (id) => {
-    console.log(id);
     setData((prevData) =>
       prevData.filter((ex) => {
         return ex.id !== id;

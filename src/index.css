@@ -46,3 +46,53 @@ body {
   background-color: red;
   backdrop-filter: blur(2px);
 }
+
+.correct {
+  animation: success ease-in-out 0.3s;
+}
+
+.incorrect {
+  animation: fail ease-in-out 0.2s;
+}
+
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+@keyframes success {
+  0% {
+    opacity: 0;
+    background-color: #5cb85c;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    background-color: none;
+  }
+}
+@keyframes fail {
+  0% {
+    opacity: 0;
+    background-color: #d9534f;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+    background-color: none;
+  }
+}

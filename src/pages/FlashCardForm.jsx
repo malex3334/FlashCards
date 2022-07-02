@@ -54,7 +54,7 @@ export default function FlashCardForm() {
                 value={english}
               />
             </label>
-            <label className="mb-3 ms-3">
+            <label className="mb-3 ms-sm-3">
               <span>Tłumaczenie:</span>
               <input
                 className="form-control"
@@ -67,7 +67,7 @@ export default function FlashCardForm() {
                 value={polish}
               />
             </label>
-            <button className="btn btn-success me-3">Dodaj</button>
+            <button className="btn btn-success ms-3 me-sm-3">Dodaj</button>
             <button
               onClick={() => setNewCard(false)}
               className="btn btn-warning"

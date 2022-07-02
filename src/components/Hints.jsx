@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
+import { Modal } from "react-bootstrap";
 
 const Hints = () => {
   const { dark, hint, setHint, dictionary } = useContext(DataContext);
@@ -14,14 +15,10 @@ const Hints = () => {
   return (
     <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
       <div className="d-flex justify-content-center align-items-center ">
-        {!infoOpen && (
-          <button
-            onClick={() => setInfoOpen(true)}
-            className="btn btn-info me-3"
-          >
-            Zasady
-          </button>
-        )}
+        <button onClick={() => setInfoOpen(true)} className="btn btn-info me-3">
+          Zasady
+        </button>
+
         <button
           className="mt-2 mb-2 btn btn-danger"
           onClick={() => setHint(true)}
@@ -29,19 +26,22 @@ const Hints = () => {
           Podpowiedź?
         </button>
       </div>
-      {infoOpen && (
+      <Modal
+        show={infoOpen}
+        onHide={() => setInfoOpen(false)}
+        className="rounded"
+      >
         <label
-          className={`container p-2 d-flex justify-content-between  align-items-start ${
-            dark ? "border border-1 border-info " : "bg-info"
+          className={`container p-2 d-flex justify-content-between  align-items-start p-3 ${
+            dark ? "text-white bg-dark " : "bg-light text-dark"
           }`}
         >
-          <div>
-            <ul>
-              <li>Poprawna odpowiedź = 1 pkt.</li>
-              <li>Poprawna odpowiedź z podpowiedzią = 0.5 pkt.</li>
-              <li>Sprawdzenie odpowiedzi = 0 pkt.</li>
-            </ul>
-          </div>
+          <ul>
+            <h5 className="text-info">Zasady punktacji:</h5>
+            <li>Poprawna odpowiedź = 1 pkt.</li>
+            <li>Poprawna odpowiedź z podpowiedzią = 0.5 pkt.</li>
+            <li>Sprawdzenie odpowiedzi = 0 pkt.</li>
+          </ul>
           <button
             onClick={() => setInfoOpen(false)}
             className="btn btn-sm btn-danger"
@@ -49,7 +49,7 @@ const Hints = () => {
             &times;
           </button>
         </label>
-      )}
+      </Modal>
 
       {hint && (
         <div className="container p-3">

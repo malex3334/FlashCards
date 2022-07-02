@@ -18,9 +18,26 @@ function FlashCard() {
   const [points, setPoints] = useState(0);
   const [streak, setStreak] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [successAnimation, setSuccessAnimation] = useState(false);
+  const [failAnimation, setFailAnimation] = useState(false);
 
   const [notification, setNotification] = useState("");
   const { dark, setDark, handleToggleTheme } = useContext(DataContext);
+
+  //success animation
+  const handleSuccessAnimation = () => {
+    setSuccessAnimation(true);
+    setTimeout(() => {
+      setSuccessAnimation(false);
+    }, 1000);
+  };
+
+  const handleFailAnimation = () => {
+    setFailAnimation(true);
+    setTimeout(() => {
+      setFailAnimation(false);
+    }, 1000);
+  };
 
   // audio sound
   const correctSound = new Audio(CorrectSound);
@@ -39,7 +56,10 @@ function FlashCard() {
     const isCorrect = () => {
       // todo - make it simpler...
       const normalizeIt = (item) => {
-        return item.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return item
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\u0142/g, "l");
       };
 
       // ANSWER CORRECT, HINTS AND ANSWER OFF
@@ -51,6 +71,8 @@ function FlashCard() {
       ) {
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
+        handleSuccessAnimation();
+
         correctSound.play();
 
         // ANSWER CORRECT, ONLY HINT ON
@@ -61,6 +83,7 @@ function FlashCard() {
           !hint)
       ) {
         correctSound.play();
+        handleSuccessAnimation();
 
         //  ANSWER CORRECT, ONLY ANSWER ON
       } else if (
@@ -71,6 +94,7 @@ function FlashCard() {
       ) {
         setPoints((prev) => prev + 0.5);
         setStreak((prev) => prev + 1);
+        handleSuccessAnimation();
         correctSound.play();
 
         // ANSWER CORRECT, ANSWER AND HINT ON
@@ -80,10 +104,12 @@ function FlashCard() {
           showAnswer &&
           hint)
       ) {
+        handleSuccessAnimation();
         correctSound.play();
       } else {
         setStreak(0);
         wrongSound.play();
+        handleFailAnimation();
       }
     };
 
@@ -140,10 +166,15 @@ function FlashCard() {
       </div>
 
       {/* ########## FLASHCARD BODY ######### */}
-      <div className="d-flex justify-content-center">
+      <div
+        className={`d-flex justify-content-center 
+        `}
+      >
         <div
-          className={`shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded ${
+          className={` shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded ${
             dark ? "border border-3 border-success" : "bg-success"
+          } ${successAnimation ? "correct" : ""} ${
+            failAnimation ? "incorrect" : ""
           }`}
         >
           <p className="text-center ">{streak > 1 ? notification : null}</p>

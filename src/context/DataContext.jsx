@@ -5,14 +5,16 @@ export const DataContext = createContext();
 
 export function ThemeProvider({ children }) {
   const [data, setData] = useState(
-    // localStorage.getItem("data")
-    //   ? JSON.parse(localStorage.getItem("data"))
-    //   : Data
     !localStorage.getItem("data") || localStorage.getItem("data") === []
       ? Data
       : JSON.parse(localStorage.getItem("data"))
   );
-  const [dark, setDark] = useState(true);
+  // const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(
+    !localStorage.getItem("theme") || localStorage.getItem("theme") === []
+      ? true
+      : JSON.parse(localStorage.getItem("theme"))
+  );
   const [hint, setHint] = useState(false);
   const [newCard, setNewCard] = useState(false);
   const [dictionary, setDictionary] = useState("");
@@ -20,6 +22,10 @@ export function ThemeProvider({ children }) {
   const handleToggleTheme = () => {
     setDark(!dark);
   };
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(dark));
+  }, [dark]);
 
   useEffect(() => {
     if (data.length == 0) {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useId, useRef, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { Modal } from "react-bootstrap";
 // import Data from "../data/data.json";
@@ -8,13 +8,11 @@ export default function FlashCardForm() {
   const { data, setData, dark, newCard, setNewCard } = useContext(DataContext);
   const [english, setEnglish] = useState("");
   const [polish, setPolish] = useState("");
+  const randomID = useId();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData((prevState) => [
-      ...prevState,
-      { id: Math.floor(Math.random() * 99999 - 20), polish, english },
-    ]);
+    setData((prevState) => [...prevState, { id: randomID, polish, english }]);
     setEnglish("");
     setPolish("");
     inputRef.current.focus();

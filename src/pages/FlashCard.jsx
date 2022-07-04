@@ -1,4 +1,10 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  useContext,
+  useCallback,
+} from "react";
 import { DataContext } from "../context/DataContext";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
@@ -10,6 +16,11 @@ import { ReactComponent as UnmuteIcon } from "../utils/unmute.svg";
 
 //  wymyślić jak wywalić polskie znaki
 // normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
+// audio sound
+const correctSound = new Audio(CorrectSound);
+correctSound.volume = 0.2;
+const wrongSound = new Audio(WrongSound);
 
 function FlashCard() {
   const answerInput = useRef();
@@ -51,11 +62,6 @@ function FlashCard() {
       setFailAnimation(false);
     }, 1000);
   };
-
-  // audio sound
-  const correctSound = new Audio(CorrectSound);
-  correctSound.volume = 0.2;
-  const wrongSound = new Audio(WrongSound);
 
   // get random flashcard index
   const randomIndex = (e) => {
@@ -175,6 +181,10 @@ function FlashCard() {
     fetchDescription(data && data[i]?.english);
   }, [i]);
 
+  useEffect(() => {
+    answerInput.current.focus();
+  }, []);
+
   // polskie znaki
 
   return (
@@ -190,12 +200,12 @@ function FlashCard() {
       </button>
       {mute && (
         <button onClick={() => setMute(false)} className="btn btn-sm">
-          <MuteIcon style={dark ? { fill: "white" } : { fill: "black" }} />
+          <MuteIcon style={dark ? { fill: "white" } : { fill: "#0275d8" }} />
         </button>
       )}
       {!mute && (
         <button onClick={() => setMute(true)} className="btn btn-sm">
-          <UnmuteIcon style={dark ? { fill: "white" } : { fill: "black" }} />
+          <UnmuteIcon style={dark ? { fill: "white" } : { fill: "#0275d8" }} />
         </button>
       )}
       <h1

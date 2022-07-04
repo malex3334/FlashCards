@@ -15,13 +15,27 @@ export function ThemeProvider({ children }) {
       ? true
       : JSON.parse(localStorage.getItem("theme"))
   );
+  const [mute, setMute] = useState(
+    !localStorage.getItem("mute") || localStorage.getItem("mute") === []
+      ? false
+      : JSON.parse(localStorage.getItem("mute"))
+  );
   const [hint, setHint] = useState(false);
   const [newCard, setNewCard] = useState(false);
   const [dictionary, setDictionary] = useState("");
+
   // change theme
   const handleToggleTheme = () => {
     setDark(!dark);
   };
+
+  const handleToggleMute = () => {
+    setMute(!mute);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("mute", JSON.stringify(mute));
+  });
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(dark));
@@ -47,6 +61,8 @@ export function ThemeProvider({ children }) {
         setDictionary,
         newCard,
         setNewCard,
+        mute,
+        setMute,
       }}
     >
       {children}

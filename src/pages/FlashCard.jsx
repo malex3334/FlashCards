@@ -5,14 +5,27 @@ import WrongSound from "../sounds/wrong.mp3";
 import Hints from "../components/Hints";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
+import { ReactComponent as MuteIcon } from "../utils/mute.svg";
+import { ReactComponent as UnmuteIcon } from "../utils/unmute.svg";
 
 //  wymyślić jak wywalić polskie znaki
 // normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
 function FlashCard() {
   const answerInput = useRef();
-  const { data, setData, hint, setHint, dictionary, setDictionary } =
-    useContext(DataContext);
+  const {
+    data,
+    setData,
+    dark,
+    setDark,
+    hint,
+    setHint,
+    dictionary,
+    setDictionary,
+    mute,
+    setMute,
+    handleToggleTheme,
+  } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
   const [points, setPoints] = useState(0);
@@ -20,9 +33,9 @@ function FlashCard() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [successAnimation, setSuccessAnimation] = useState(false);
   const [failAnimation, setFailAnimation] = useState(false);
+  // const [mute, setMute] = useState(false);
 
   const [notification, setNotification] = useState("");
-  const { dark, setDark, handleToggleTheme } = useContext(DataContext);
 
   //success animation
   const handleSuccessAnimation = () => {
@@ -59,13 +72,18 @@ function FlashCard() {
         return item
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
-          .replace(/\u0142/g, "l");
+          .replace(/\u0142/g, "l")
+          .replace(/ /g, "");
       };
 
       // ANSWER CORRECT, HINTS AND ANSWER OFF
       if (
-        (data[i].polish.includes(answer) && !showAnswer && !hint) ||
-        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+          !showAnswer &&
+          !hint) ||
+        (data[i].polish
+          .map((item) => normalizeIt(item))
+          .includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
           !hint)
       ) {
@@ -73,42 +91,54 @@ function FlashCard() {
         setStreak((prev) => prev + 1);
         handleSuccessAnimation();
 
-        correctSound.play();
+        !mute && correctSound.play();
 
         // ANSWER CORRECT, ONLY HINT ON
       } else if (
-        (data[i].polish.includes(answer) && showAnswer && !hint) ||
-        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+          showAnswer &&
+          !hint) ||
+        (data[i].polish
+          .map((item) => normalizeIt(item))
+          .includes(answer.replace(/ /g, "")) &&
           showAnswer &&
           !hint)
       ) {
-        correctSound.play();
+        !mute && correctSound.play();
         handleSuccessAnimation();
 
         //  ANSWER CORRECT, ONLY ANSWER ON
       } else if (
-        (data[i].polish.includes(answer) && !showAnswer && hint) ||
-        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+          !showAnswer &&
+          hint) ||
+        (data[i].polish
+          .map((item) => normalizeIt(item))
+          .includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
           hint)
       ) {
         setPoints((prev) => prev + 0.5);
         setStreak((prev) => prev + 1);
         handleSuccessAnimation();
-        correctSound.play();
+        !mute && correctSound.play();
 
         // ANSWER CORRECT, ANSWER AND HINT ON
       } else if (
-        (data[i].polish.includes(answer) && showAnswer && hint) ||
-        (data[i].polish.map((item) => normalizeIt(item)).includes(answer) &&
+        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+          showAnswer &&
+          hint) ||
+        (data[i].polish
+          .map((item) => normalizeIt(item))
+          .includes(answer.replace(/ /g, "")) &&
           showAnswer &&
           hint)
       ) {
         handleSuccessAnimation();
-        correctSound.play();
+        !mute && correctSound.play();
       } else {
         setStreak(0);
-        wrongSound.play();
+        !mute && wrongSound.play();
         handleFailAnimation();
       }
     };
@@ -136,6 +166,11 @@ function FlashCard() {
     setDictionary(parsedRes);
   };
 
+  const handleShowAnswer = () => {
+    setShowAnswer(true);
+    answerInput.current.focus();
+  };
+
   useEffect(() => {
     fetchDescription(data && data[i]?.english);
   }, [i]);
@@ -149,10 +184,20 @@ function FlashCard() {
     >
       <button
         onClick={handleToggleTheme}
-        className="mb-2 btn btn-outline-primary w-20 "
+        className="me-2 btn btn-outline-primary w-20 "
       >
         {dark ? "Tryb dzienny" : "Tryb nocny"}
       </button>
+      {mute && (
+        <button onClick={() => setMute(false)} className="btn btn-sm">
+          <MuteIcon style={dark ? { fill: "white" } : { fill: "black" }} />
+        </button>
+      )}
+      {!mute && (
+        <button onClick={() => setMute(true)} className="btn btn-sm">
+          <UnmuteIcon style={dark ? { fill: "white" } : { fill: "black" }} />
+        </button>
+      )}
       <h1
         className={`display-2 mb-3 mt-3 text-center  ${
           dark ? "text-light" : "text-dark"
@@ -185,7 +230,7 @@ function FlashCard() {
                   {data && data[i]?.english}
                 </p>
                 <button
-                  onClick={() => setShowAnswer(true)}
+                  onClick={handleShowAnswer}
                   className="btn btn-sm btn-warning ms-4 "
                 >
                   odp

@@ -22,6 +22,10 @@ export default function FlashCardForm() {
     localStorage.setItem("data", JSON.stringify(data));
   }, [handleSubmit]);
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <Modal show={newCard} onHide={() => setNewCard(false)}>
       <div

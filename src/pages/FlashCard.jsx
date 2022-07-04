@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  useState,
-  useEffect,
-  useContext,
-  useCallback,
-} from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { DataContext } from "../context/DataContext";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
@@ -13,9 +7,6 @@ import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
 import { ReactComponent as MuteIcon } from "../utils/mute.svg";
 import { ReactComponent as UnmuteIcon } from "../utils/unmute.svg";
-
-//  wymyślić jak wywalić polskie znaki
-// normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 
 // audio sound
 const correctSound = new Audio(CorrectSound);
@@ -184,8 +175,6 @@ function FlashCard() {
   useEffect(() => {
     answerInput.current.focus();
   }, []);
-
-  // polskie znaki
 
   return (
     <div

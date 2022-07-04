@@ -13,7 +13,7 @@ const Hints = () => {
   );
 
   return (
-    <div className={`mt-5 ${dark ? "text-light" : "text-dark"}`}>
+    <div className={`mt-5 ${dark ? "text-light" : "text-dark"} `}>
       <div className="d-flex justify-content-center align-items-center ">
         <button onClick={() => setInfoOpen(true)} className="btn btn-info me-3">
           Zasady
@@ -52,7 +52,7 @@ const Hints = () => {
       </Modal>
 
       {hint && (
-        <div className="container p-3">
+        <div className="container p-3 appear">
           <div className="d-flex">
             <h2>{dictionary[0]?.word}</h2>
 

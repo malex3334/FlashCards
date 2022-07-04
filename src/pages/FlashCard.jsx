@@ -35,6 +35,11 @@ function FlashCard() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [successAnimation, setSuccessAnimation] = useState(false);
   const [failAnimation, setFailAnimation] = useState(false);
+  const [bestStreak, setBestStreak] = useState(
+    !localStorage.getItem("score") || localStorage.getItem("score") === []
+      ? 0
+      : JSON.parse(localStorage.getItem("score"))
+  );
   // const [mute, setMute] = useState(false);
 
   const [notification, setNotification] = useState("");
@@ -176,6 +181,16 @@ function FlashCard() {
     answerInput.current.focus();
   }, []);
 
+  // najdłuższa seria
+  useEffect(() => {
+    if (streak > bestStreak) {
+      setBestStreak(streak);
+      localStorage.setItem("score", JSON.stringify(streak));
+    }
+  }, [streak, bestStreak]);
+
+  useEffect(() => {}, [setBestStreak]);
+
   return (
     <div
       className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded 
@@ -204,9 +219,14 @@ function FlashCard() {
       >
         Fiszki <UKFlag style={{ width: "80px", height: "80px" }} />
       </h1>
-      <div className={`${dark ? "text-light" : "text-dar"}`}>
-        <h4>Punkty: {points}</h4>
+      <div
+        className={`${
+          dark ? "text-light" : "text-dar"
+        } d-flex justify-content-around align-items-center mb-2 `}
+      >
+        <h5>Punkty: {points}</h5>
         <h5>Seria: {streak}</h5>
+        <h5>Najdłuższa seria: {bestStreak}</h5>
       </div>
 
       {/* ########## FLASHCARD BODY ######### */}

@@ -37,6 +37,20 @@ function App() {
       {isOpen && <FlashCardList />}
 
       {newCard && <FlashCardForm />}
+
+      <footer className="d-flex justify-content-center">
+        <h5
+          className="text-info font-italic"
+          style={{
+            fontSize: "15px",
+            fontStyle: "italic",
+            letterSpacing: "1.2px",
+            opacity: "0.7",
+          }}
+        >
+          Copyrights M.A. {new Date().toLocaleDateString().slice(5, 10)} &copy;
+        </h5>
+      </footer>
     </div>
   );
 }

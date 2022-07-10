@@ -27,6 +27,7 @@ function FlashCard() {
     mute,
     setMute,
     handleToggleTheme,
+    filteredData,
   } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
@@ -61,7 +62,7 @@ function FlashCard() {
 
   // get random flashcard index
   const randomIndex = (e) => {
-    const newIndex = Math.floor(Math.random() * data.length);
+    const newIndex = Math.floor(Math.random() * filteredData.length);
     setI(newIndex);
   };
 
@@ -80,10 +81,10 @@ function FlashCard() {
 
       // ANSWER CORRECT, HINTS AND ANSWER OFF
       if (
-        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+        (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
           !hint) ||
-        (data[i].polish
+        (filteredData[i].polish
           .map((item) => normalizeIt(item))
           .includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
@@ -97,10 +98,10 @@ function FlashCard() {
 
         // ANSWER CORRECT, ONLY HINT ON
       } else if (
-        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+        (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
           showAnswer &&
           !hint) ||
-        (data[i].polish
+        (filteredData[i].polish
           .map((item) => normalizeIt(item))
           .includes(answer.replace(/ /g, "")) &&
           showAnswer &&
@@ -111,10 +112,10 @@ function FlashCard() {
 
         //  ANSWER CORRECT, ONLY ANSWER ON
       } else if (
-        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+        (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
           hint) ||
-        (data[i].polish
+        (filteredData[i].polish
           .map((item) => normalizeIt(item))
           .includes(answer.replace(/ /g, "")) &&
           !showAnswer &&
@@ -127,10 +128,10 @@ function FlashCard() {
 
         // ANSWER CORRECT, ANSWER AND HINT ON
       } else if (
-        (data[i].polish.includes(answer.replace(/ /g, "")) &&
+        (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
           showAnswer &&
           hint) ||
-        (data[i].polish
+        (filteredData[i].polish
           .map((item) => normalizeIt(item))
           .includes(answer.replace(/ /g, "")) &&
           showAnswer &&
@@ -158,7 +159,7 @@ function FlashCard() {
     setShowAnswer(false);
   };
 
-  // fetch dictionary data
+  // fetch dictionary filteredData
 
   const fetchDescription = async (word) => {
     const res = await fetch(
@@ -174,7 +175,7 @@ function FlashCard() {
   };
 
   useEffect(() => {
-    fetchDescription(data && data[i]?.english);
+    fetchDescription(filteredData && filteredData[i]?.english);
   }, [i]);
 
   useEffect(() => {
@@ -246,7 +247,7 @@ function FlashCard() {
             {!showAnswer && (
               <>
                 <p className="text-centered text-white display-3">
-                  {data && data[i]?.english}
+                  {filteredData && filteredData[i]?.english}
                 </p>
                 <button
                   onClick={handleShowAnswer}
@@ -258,7 +259,7 @@ function FlashCard() {
             )}
             {showAnswer && (
               <p className="text-centered text-light display-3">
-                {data && data[i]?.polish[0]}{" "}
+                {filteredData && filteredData[i]?.polish[0]}{" "}
                 <PLFlag style={{ width: "40px" }} />
               </p>
             )}

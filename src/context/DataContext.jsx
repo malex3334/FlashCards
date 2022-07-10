@@ -48,6 +48,10 @@ export function ThemeProvider({ children }) {
     }
   }, [data]);
 
+  useEffect(() => {
+    setFilteredData(data);
+  }, []);
+
   return (
     <DataContext.Provider
       value={{

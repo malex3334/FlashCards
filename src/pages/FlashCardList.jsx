@@ -48,7 +48,6 @@ function FlashCardList() {
       }
     });
   };
-  console.log(filteredData);
 
   return (
     <div
@@ -58,8 +57,8 @@ function FlashCardList() {
     >
       <h2>Wszystkie fiszki:</h2>
       <ul>
-        {data ? (
-          data.map((item) => (
+        {filteredData ? (
+          filteredData.map((item) => (
             <li
               className="fs-5"
               style={{ listStyle: "none" }}

@@ -65,6 +65,7 @@ function FlashCard() {
   const randomIndex = (e) => {
     const newIndex = Math.floor(Math.random() * filteredData.length);
     setI(newIndex);
+    console.log(i);
   };
 
   useEffect(() => {
@@ -181,7 +182,7 @@ function FlashCard() {
 
   useEffect(() => {
     fetchDescription(filteredData && filteredData[i]?.english);
-  }, [i]);
+  }, [i, filteredData]);
 
   useEffect(() => {
     answerInput.current.focus();
@@ -228,7 +229,7 @@ function FlashCard() {
       <div
         className={`${
           dark ? "text-light" : "text-dar"
-        } d-flex justify-content-around align-items-center m-4 border border-warning rounded pt-1 flex-wrap `}
+        } d-flex justify-content-around align-items-center m-4 border border-warning rounded pt-2 flex-wrap `}
       >
         <h5>Punkty: {points}</h5>
         <h5>Seria: {streak}</h5>

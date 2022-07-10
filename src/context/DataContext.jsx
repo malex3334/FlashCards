@@ -50,7 +50,7 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     setFilteredData(data);
-  }, []);
+  }, [data]);
 
   return (
     <DataContext.Provider

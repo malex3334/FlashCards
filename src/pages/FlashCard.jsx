@@ -28,6 +28,7 @@ function FlashCard() {
     setMute,
     handleToggleTheme,
     filteredData,
+    setFilteredData,
   } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
@@ -65,6 +66,10 @@ function FlashCard() {
     const newIndex = Math.floor(Math.random() * filteredData.length);
     setI(newIndex);
   };
+
+  useEffect(() => {
+    randomIndex();
+  }, [setFilteredData]);
 
   const handleAnswerSubmit = (e) => {
     e.preventDefault();

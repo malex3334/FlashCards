@@ -8,13 +8,18 @@ export default function FlashCardForm() {
   const { data, setData, dark, newCard, setNewCard } = useContext(DataContext);
   const [english, setEnglish] = useState("");
   const [polish, setPolish] = useState("");
+  const [category, setCategory] = useState("");
   const randomID = useId();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData((prevState) => [...prevState, { id: randomID, polish, english }]);
+    setData((prevState) => [
+      ...prevState,
+      { id: randomID, polish, english, topic: category },
+    ]);
     setEnglish("");
     setPolish("");
+    setCategory("");
     inputRef.current.focus();
   };
 
@@ -67,6 +72,17 @@ export default function FlashCardForm() {
                   setPolish(e.target.value.toLowerCase().split(/[ ,]+/))
                 }
                 value={polish}
+              />
+            </label>
+            <label className="mb-3 ms-sm-3">
+              <span>Kategoria:</span>
+              <input
+                className="form-control"
+                required
+                minLength={3}
+                type="text"
+                onChange={(e) => setCategory(e.target.value.toLowerCase())}
+                value={category}
               />
             </label>
             <button className="btn btn-success ms-3 me-sm-3">Dodaj</button>

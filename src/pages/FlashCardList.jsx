@@ -8,11 +8,6 @@ function FlashCardList() {
   const { data, setData, dark, filteredData, setFilteredData } =
     useContext(DataContext);
 
-  // useEffect(() => {
-  //   setBackupData(data);
-  //   console.log(backupData);
-  // }, []);
-
   const handleDelete = (id) => {
     setData((prevData) =>
       prevData.filter((ex) => {

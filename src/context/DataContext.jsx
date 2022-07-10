@@ -23,6 +23,7 @@ export function ThemeProvider({ children }) {
   const [hint, setHint] = useState(false);
   const [newCard, setNewCard] = useState(false);
   const [dictionary, setDictionary] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
 
   // change theme
   const handleToggleTheme = () => {
@@ -42,7 +43,7 @@ export function ThemeProvider({ children }) {
   }, [dark]);
 
   useEffect(() => {
-    if (data.length == 0) {
+    if (data.length === 0) {
       setData(Data);
     }
   }, [data]);
@@ -63,6 +64,8 @@ export function ThemeProvider({ children }) {
         setNewCard,
         mute,
         setMute,
+        filteredData,
+        setFilteredData,
       }}
     >
       {children}

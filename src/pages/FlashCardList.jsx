@@ -1,11 +1,17 @@
-import React, { useContext, useEffect, useId } from "react";
+import React, { useContext, useEffect, useId, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
 import Data from "../data/data.json";
 
 function FlashCardList() {
-  const { data, setData, dark } = useContext(DataContext);
+  const { data, setData, dark, filteredData, setFilteredData } =
+    useContext(DataContext);
+
+  // useEffect(() => {
+  //   setBackupData(data);
+  //   console.log(backupData);
+  // }, []);
 
   const handleDelete = (id) => {
     setData((prevData) =>
@@ -26,6 +32,23 @@ function FlashCardList() {
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
   }, [handleDelete]);
+
+  const handleCategory = (id) => {
+    // reset filters
+    let newData = [];
+
+    if (id === "wszystkie") {
+      setFilteredData(data);
+    }
+
+    data.filter((data) => {
+      if (data.topic === id) {
+        newData.push(data);
+        setFilteredData(newData);
+      }
+    });
+  };
+  console.log(filteredData);
 
   return (
     <div
@@ -72,6 +95,24 @@ function FlashCardList() {
       </ul>
       <button onClick={handleReset} className="btn btn-danger">
         Zresetuj wszystkie
+      </button>
+      <button
+        onClick={() => handleCategory("szkoła")}
+        className="btn btn-warning"
+      >
+        Szkoła
+      </button>
+      <button
+        onClick={() => handleCategory("rozrywka")}
+        className="btn btn-warning"
+      >
+        Rozrywka
+      </button>
+      <button
+        onClick={() => handleCategory("wszystkie")}
+        className="btn btn-warning"
+      >
+        Wszystkie
       </button>
     </div>
   );

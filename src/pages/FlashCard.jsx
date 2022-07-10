@@ -222,7 +222,7 @@ function FlashCard() {
       <div
         className={`${
           dark ? "text-light" : "text-dar"
-        } d-flex justify-content-around align-items-center mb-2 `}
+        } d-flex justify-content-around align-items-center m-4 border border-warning rounded pt-1 flex-wrap `}
       >
         <h5>Punkty: {points}</h5>
         <h5>Seria: {streak}</h5>

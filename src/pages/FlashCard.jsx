@@ -44,7 +44,6 @@ function FlashCard() {
       ? 0
       : JSON.parse(localStorage.getItem("score"))
   );
-  // const [mute, setMute] = useState(false);
 
   const [notification, setNotification] = useState("");
 
@@ -197,8 +196,6 @@ function FlashCard() {
       localStorage.setItem("score", JSON.stringify(streak));
     }
   }, [streak, bestStreak]);
-
-  useEffect(() => {}, [setBestStreak]);
 
   return (
     <div

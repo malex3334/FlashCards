@@ -10,6 +10,7 @@ export default function FlashCardForm() {
   const [polish, setPolish] = useState("");
   const [category, setCategory] = useState("");
   const randomID = useId();
+  const [flashAdded, setFlashAdded] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,16 @@ export default function FlashCardForm() {
     setPolish("");
     setCategory("");
     inputRef.current.focus();
+
+    setFlashAdded(true);
+    setTimeout(() => {
+      setFlashAdded(false);
+    }, 3000);
   };
+
+  function FlashAdded() {
+    return <h5 className="text-success text-align-center">Dodano fiszkę!</h5>;
+  }
 
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
@@ -49,6 +59,7 @@ export default function FlashCardForm() {
         </div>
         <div className="modal-body">
           <form className="form-group" onSubmit={handleSubmit}>
+            {flashAdded && <FlashAdded />}
             <label>
               <span>Słówko:</span>
               <input
@@ -74,7 +85,7 @@ export default function FlashCardForm() {
                 value={polish}
               />
             </label>
-            <label className="mb-3 ms-sm-3">
+            <label className="mb-3 ">
               <span>Kategoria:</span>
               <input
                 className="form-control"
@@ -85,7 +96,8 @@ export default function FlashCardForm() {
                 value={category}
               />
             </label>
-            <button className="btn btn-success ms-3 me-sm-3">Dodaj</button>
+            <br />
+            <button className="btn btn-success me-3 me-sm-3">Dodaj</button>
             <button
               onClick={() => setNewCard(false)}
               className="btn btn-warning"

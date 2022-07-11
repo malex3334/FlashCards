@@ -7,6 +7,8 @@ import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
 import { ReactComponent as MuteIcon } from "../utils/mute.svg";
 import { ReactComponent as UnmuteIcon } from "../utils/unmute.svg";
+import { ReactComponent as DarkMode } from "../utils/dm.svg";
+import { ReactComponent as LightMode } from "../utils/lm.svg";
 
 // audio sound
 const correctSound = new Audio(CorrectSound);
@@ -200,36 +202,65 @@ function FlashCard() {
 
   return (
     <div
-      className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded 
+      className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded
         ${dark ? "bg-dark" : "bg-white"}`}
     >
-      <button
-        onClick={handleToggleTheme}
-        className="me-2 btn btn-outline-primary w-20 "
-      >
-        {dark ? "Tryb dzienny" : "Tryb nocny"}
-      </button>
-      {mute && (
-        <button onClick={() => setMute(false)} className="btn btn-sm">
-          <MuteIcon style={dark ? { fill: "white" } : { fill: "#0275d8" }} />
+      <div className="d-flex align-items-center justify-content-around">
+        <button
+          onClick={handleToggleTheme}
+          style={{ width: "15%" }}
+          className="btn btn-sm "
+        >
+          {dark ? (
+            <LightMode style={{ fill: "white", transform: "scale(1.3)" }} />
+          ) : (
+            <DarkMode style={{ fill: "#0275d8", transform: "scale(1.3)" }} />
+          )}
         </button>
-      )}
-      {!mute && (
-        <button onClick={() => setMute(true)} className="btn btn-sm">
-          <UnmuteIcon style={dark ? { fill: "white" } : { fill: "#0275d8" }} />
-        </button>
-      )}
-      <h1
-        className={`display-2 mb-3 mt-3 text-center  ${
-          dark ? "text-light" : "text-dark"
-        }`}
-      >
-        Fiszki <UKFlag style={{ width: "80px", height: "80px" }} />
-      </h1>
+
+        <h1
+          className={`display-2 mb-3 mt-3 text-center  ${
+            dark ? "text-light" : "text-dark"
+          }`}
+        >
+          Fiszki <UKFlag style={{ width: "80px", height: "80px" }} />
+        </h1>
+        {mute && (
+          <button
+            onClick={() => setMute(false)}
+            style={{ width: "15%" }}
+            className="btn btn-sm"
+          >
+            <MuteIcon
+              style={
+                dark
+                  ? { fill: "white", transform: "scale(1.3)" }
+                  : { fill: "#0275d8", transform: "scale(1.3)" }
+              }
+            />
+          </button>
+        )}
+        {!mute && (
+          <button
+            onClick={() => setMute(true)}
+            style={{ width: "15%" }}
+            className="btn btn-sm"
+          >
+            <UnmuteIcon
+              style={
+                dark
+                  ? { fill: "white", transform: "scale(1.5)" }
+                  : { fill: "#0275d8", transform: "scale(1.5)" }
+              }
+            />
+          </button>
+        )}
+      </div>
+
       <div
         className={`${
           dark ? "text-light" : "text-dar"
-        } d-flex justify-content-around align-items-center m-4 border border-warning rounded pt-2 flex-wrap `}
+        } d-flex justify-content-around align-items-center m-4 border border-warning rounded-3 pt-2 flex-wrap `}
       >
         <h5>Punkty: {points}</h5>
         <h5>Seria: {streak}</h5>

@@ -16,7 +16,7 @@ export default function FlashCardForm() {
     e.preventDefault();
     setData((prevState) => [
       ...prevState,
-      { id: randomID, polish, english, topic: category },
+      { id: randomID, polish, english, category: category },
     ]);
     setEnglish("");
     setPolish("");

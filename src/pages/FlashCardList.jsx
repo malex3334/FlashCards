@@ -37,7 +37,7 @@ function FlashCardList() {
     }
 
     data.filter((data) => {
-      if (data.topic === id) {
+      if (data.category === id) {
         newData.push(data);
         setFilteredData(newData);
       }
@@ -87,27 +87,31 @@ function FlashCardList() {
           <p>Brak fiszek do wyświetlenia</p>
         )}
       </ul>
-      <button onClick={handleReset} className="btn btn-danger">
-        Zresetuj wszystkie
-      </button>
-      <button
-        onClick={() => handleCategory("szkoła")}
-        className="btn btn-warning"
-      >
-        Szkoła
-      </button>
-      <button
-        onClick={() => handleCategory("rozrywka")}
-        className="btn btn-warning"
-      >
-        Rozrywka
-      </button>
-      <button
-        onClick={() => handleCategory("wszystkie")}
-        className="btn btn-warning"
-      >
-        Wszystkie
-      </button>
+      <div className="d-flex justify-content-center gap-3">
+        <button
+          onClick={() => handleCategory("szkoła")}
+          className="btn btn-warning"
+        >
+          Szkoła
+        </button>
+        <button
+          onClick={() => handleCategory("rozrywka")}
+          className="btn btn-warning"
+        >
+          Rozrywka
+        </button>
+        <button
+          onClick={() => handleCategory("wszystkie")}
+          className="btn btn-warning"
+        >
+          Wszystkie
+        </button>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+        <button onClick={handleReset} className="btn btn-danger">
+          Zresetuj wszystkie
+        </button>
+      </div>
     </div>
   );
 }

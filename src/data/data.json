@@ -3,32 +3,47 @@
     "id": 1,
     "polish": ["nisko", "niski", "niskie"],
     "english": "low",
-    "topic": "szkoła"
+    "category": "szkoła"
   },
   {
     "id": 2,
     "polish": ["wysoki", "wysoki", "wysoko"],
     "english": "high",
-    "topic": "szkoła"
+    "category": "szkoła"
   },
   { "id": 3, "polish": ["duży", "duże", "duża"], "english": "big" },
   { "id": 4, "polish": ["mały", "małe", "mała"], "english": "small" },
   { "id": 5, "polish": ["samochód", "auto"], "english": "car" },
   { "id": 6, "polish": ["dom"], "english": "house" },
-  { "id": 7, "polish": ["karty"], "english": "cards", "topic": "rozrywka" },
+  { "id": 7, "polish": ["karty"], "english": "cards", "category": "rozrywka" },
   { "id": 8, "polish": ["świat"], "english": "world" },
-  { "id": 9, "polish": ["film"], "english": "movie", "topic": "rozrywka" },
-  { "id": 10, "polish": ["muzyka"], "english": "music", "topic": "rozrywka" },
-  { "id": 11, "polish": ["teatr"], "english": "theater", "topic": "rozrywka" },
-  { "id": 12, "polish": ["kino"], "english": "cinema", "topic": "rozrywka" },
+  { "id": 9, "polish": ["film"], "english": "movie", "category": "rozrywka" },
+  {
+    "id": 10,
+    "polish": ["muzyka"],
+    "english": "music",
+    "category": "rozrywka"
+  },
+  {
+    "id": 11,
+    "polish": ["teatr"],
+    "english": "theater",
+    "category": "rozrywka"
+  },
+  { "id": 12, "polish": ["kino"], "english": "cinema", "category": "rozrywka" },
   { "id": 13, "polish": ["szkoła"], "english": "school" },
   { "id": 14, "polish": ["lekcja", "nauczka"], "english": "lesson" },
-  { "id": 15, "polish": ["wycieczka"], "english": "trip", "topic": "rozrywka" },
+  {
+    "id": 15,
+    "polish": ["wycieczka"],
+    "english": "trip",
+    "category": "rozrywka"
+  },
   {
     "id": 16,
     "polish": ["podróż", "wycieczka"],
     "english": "journey",
-    "topic": "rozrywka"
+    "category": "rozrywka"
   },
   { "id": 17, "polish": ["miska"], "english": "bowl" },
   { "id": 18, "polish": ["kabel", "przewód"], "english": "cable" },

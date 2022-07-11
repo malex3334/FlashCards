@@ -16,7 +16,7 @@ function FlashCardList() {
     );
   };
 
-  const handleReset = (e) => {
+  const handleReset = () => {
     if (window.confirm("Na pewno zresetować bazę fiszek?")) {
       setData(Data);
     } else {
@@ -52,7 +52,7 @@ function FlashCardList() {
     >
       <h2>Wszystkie fiszki:</h2>
       <ul>
-        {filteredData ? (
+        {filteredData.length > 0 ? (
           filteredData.map((item) => (
             <li
               className="fs-5"
@@ -84,7 +84,13 @@ function FlashCardList() {
             </li>
           ))
         ) : (
-          <p>Brak fiszek do wyświetlenia</p>
+          <>
+            <p>Brak fiszek do wyświetlenia :(</p>
+            <p className="text text-muted">
+              Kliknij "dodaj fiszkę" aby dodać nowe słówka lub "zresetuj
+              wszystkie" by przywrócić podstawowe fiszki.
+            </p>
+          </>
         )}
       </ul>
       <div className="d-flex justify-content-center gap-3">

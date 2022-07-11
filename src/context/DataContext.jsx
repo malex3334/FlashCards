@@ -42,11 +42,11 @@ export function ThemeProvider({ children }) {
     localStorage.setItem("theme", JSON.stringify(dark));
   }, [dark]);
 
-  useEffect(() => {
-    if (data.length === 0) {
-      setData(Data);
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (data.length === 0) {
+  //     setData(Data);
+  //   }
+  // }, [data]);
 
   useEffect(() => {
     setFilteredData(data);

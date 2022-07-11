@@ -281,7 +281,17 @@ function FlashCard() {
             {!showAnswer && (
               <>
                 <p className="text-centered text-white display-3">
-                  {filteredData && filteredData[i]?.english}
+                  {filteredData.length > 0 ? (
+                    filteredData[i]?.english
+                  ) : (
+                    <span
+                      className={`display-5 ${
+                        dark ? "text-muted" : "text-light"
+                      }`}
+                    >
+                      brak fiszki
+                    </span>
+                  )}
                 </p>
                 <button
                   onClick={handleShowAnswer}

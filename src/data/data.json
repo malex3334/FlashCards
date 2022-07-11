@@ -1,52 +1,209 @@
 [
   {
     "id": 1,
+    "polish": ["kot", "koteł"],
+    "english": "cat",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 2,
+    "polish": ["pies", "pieseł"],
+    "english": "dog",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 3,
+    "polish": ["mysz", "mysza"],
+    "english": "mause",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 4,
+    "polish": ["ptak"],
+    "english": "bird",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 5,
+    "polish": ["lis"],
+    "english": "fox",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 6,
+    "polish": ["niedźwiedź"],
+    "english": "bear",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 7,
+    "polish": ["kura"],
+    "english": "chicken",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 9,
+    "polish": ["krowa"],
+    "english": "cow",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 10,
+    "polish": ["orzeł"],
+    "english": "eagle",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 11,
+    "polish": ["ryba"],
+    "english": "fish",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 12,
+    "polish": ["słoń"],
+    "english": "elephant",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 13,
+    "polish": ["sokół"],
+    "english": "falcon",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 14,
+    "polish": ["goat"],
+    "english": "koza",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 15,
+    "polish": ["żaba"],
+    "english": "frog",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 16,
+    "polish": ["mucha"],
+    "english": "fly",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 17,
+    "polish": ["żyrafa"],
+    "english": "giraffe",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 18,
+    "polish": ["gęś"],
+    "english": "goose",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 19,
+    "polish": ["goryl"],
+    "english": "gorilla",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 20,
+    "polish": ["koń"],
+    "english": "horse",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 21,
+    "polish": ["hiena"],
+    "english": "hyena",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 22,
+    "polish": ["owad", "insekt"],
+    "english": "insect",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 23,
+    "polish": ["kangur"],
+    "english": "kangaroo",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 24,
+    "polish": ["lew"],
+    "english": "lion",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 25,
+    "polish": ["jaszczurka"],
+    "english": "lizard",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 26,
+    "polish": ["lama"],
+    "english": "llama",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 27,
+    "polish": ["ryś"],
+    "english": "lynx",
+    "category": "zwierzeta"
+  },
+
+  {
+    "id": 31,
     "polish": ["nisko", "niski", "niskie"],
     "english": "low",
     "category": "szkoła"
   },
   {
-    "id": 2,
+    "id": 32,
     "polish": ["wysoki", "wysoki", "wysoko"],
     "english": "high",
     "category": "szkoła"
   },
-  { "id": 3, "polish": ["duży", "duże", "duża"], "english": "big" },
-  { "id": 4, "polish": ["mały", "małe", "mała"], "english": "small" },
-  { "id": 5, "polish": ["samochód", "auto"], "english": "car" },
-  { "id": 6, "polish": ["dom"], "english": "house" },
-  { "id": 7, "polish": ["karty"], "english": "cards", "category": "rozrywka" },
-  { "id": 8, "polish": ["świat"], "english": "world" },
-  { "id": 9, "polish": ["film"], "english": "movie", "category": "rozrywka" },
+  { "id": 33, "polish": ["duży", "duże", "duża"], "english": "big" },
+  { "id": 34, "polish": ["mały", "małe", "mała"], "english": "small" },
+  { "id": 35, "polish": ["samochód", "auto"], "english": "car" },
+  { "id": 36, "polish": ["dom"], "english": "house" },
+  { "id": 37, "polish": ["karty"], "english": "cards", "category": "rozrywka" },
+  { "id": 38, "polish": ["świat"], "english": "world" },
+  { "id": 39, "polish": ["film"], "english": "movie", "category": "rozrywka" },
   {
-    "id": 10,
+    "id": 40,
     "polish": ["muzyka"],
     "english": "music",
     "category": "rozrywka"
   },
   {
-    "id": 11,
+    "id": 40,
     "polish": ["teatr"],
     "english": "theater",
     "category": "rozrywka"
   },
-  { "id": 12, "polish": ["kino"], "english": "cinema", "category": "rozrywka" },
-  { "id": 13, "polish": ["szkoła"], "english": "school" },
-  { "id": 14, "polish": ["lekcja", "nauczka"], "english": "lesson" },
+  { "id": 41, "polish": ["kino"], "english": "cinema", "category": "rozrywka" },
+  { "id": 42, "polish": ["szkoła"], "english": "school" },
+  { "id": 43, "polish": ["lekcja", "nauczka"], "english": "lesson" },
   {
-    "id": 15,
+    "id": 44,
     "polish": ["wycieczka"],
     "english": "trip",
     "category": "rozrywka"
   },
   {
-    "id": 16,
+    "id": 45,
     "polish": ["podróż", "wycieczka"],
     "english": "journey",
     "category": "rozrywka"
   },
-  { "id": 17, "polish": ["miska"], "english": "bowl" },
-  { "id": 18, "polish": ["kabel", "przewód"], "english": "cable" },
-  { "id": 19, "polish": ["klucz"], "english": "key" },
-  { "id": 20, "polish": ["biurko"], "english": "desk" }
+  { "id": 46, "polish": ["miska"], "english": "bowl" },
+  { "id": 47, "polish": ["kabel", "przewód"], "english": "cable" },
+  { "id": 48, "polish": ["klucz"], "english": "key" },
+  { "id": 49, "polish": ["biurko"], "english": "desk" }
 ]

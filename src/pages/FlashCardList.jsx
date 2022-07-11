@@ -95,11 +95,12 @@ function FlashCardList() {
       </ul>
       <div className="d-flex justify-content-center gap-3">
         <button
-          onClick={() => handleCategory("szkoła")}
+          onClick={() => handleCategory("zwierzeta")}
           className="btn btn-warning"
         >
-          Szkoła
+          Zwierzęta
         </button>
+
         <button
           onClick={() => handleCategory("rozrywka")}
           className="btn btn-warning"

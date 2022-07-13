@@ -53,36 +53,38 @@ function FlashCardList() {
       <h2>Wszystkie fiszki:</h2>
       <ul>
         {filteredData.length > 0 ? (
-          filteredData.map((item) => (
-            <li
-              className="fs-5"
-              style={{ listStyle: "none" }}
-              key={item.polish[0]}
-            >
-              <button
-                onClick={() => {
-                  handleDelete(item.id);
-                }}
-                className="btn btn-sm btn-danger me-2"
+          filteredData
+            .sort((a, b) => a.english.localeCompare(b.english))
+            .map((item) => (
+              <li
+                className="fs-5"
+                style={{ listStyle: "none" }}
+                key={item.polish[0]}
               >
-                &times;
-              </button>
-              <UKFlag style={{ height: "10px", marginRight: "10px" }} />
-              {item.english} &rarr;{" "}
-              <span>
-                <PLFlag className="me-2" style={{ height: "10px" }} />
-              </span>
-              {item.polish.map((arrayItem) => (
-                <span
-                  className="fs-5 fst-italic text-muted"
-                  key={Math.floor(Math.random() * (1000 - 10) - 10)}
+                <button
+                  onClick={() => {
+                    handleDelete(item.id);
+                  }}
+                  className="btn btn-sm btn-danger me-2"
                 >
-                  {arrayItem}
-                  <span>, </span>
+                  &times;
+                </button>
+                <UKFlag style={{ height: "10px", marginRight: "10px" }} />
+                {item.english} &rarr;{" "}
+                <span>
+                  <PLFlag className="me-2" style={{ height: "10px" }} />
                 </span>
-              ))}
-            </li>
-          ))
+                {item.polish.map((arrayItem) => (
+                  <span
+                    className="fs-5 fst-italic text-muted"
+                    key={Math.floor(Math.random() * (1000 - 10) - 10)}
+                  >
+                    {arrayItem}
+                    <span>, </span>
+                  </span>
+                ))}
+              </li>
+            ))
         ) : (
           <>
             <p>Brak fiszek do wyświetlenia :(</p>

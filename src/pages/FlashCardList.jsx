@@ -5,6 +5,8 @@ import { ReactComponent as PLFlag } from "../utils/pl.svg";
 import Data from "../data/data.json";
 
 function FlashCardList() {
+  const [categoryName, setCategoryName] = useState("Wszystkie");
+
   const { data, setData, dark, filteredData, setFilteredData } =
     useContext(DataContext);
 
@@ -42,6 +44,7 @@ function FlashCardList() {
         setFilteredData(newData);
       }
     });
+    setCategoryName(id);
   };
 
   return (
@@ -58,12 +61,6 @@ function FlashCardList() {
           Zwierzęta
         </button>
 
-        <button
-          onClick={() => handleCategory("rozrywka")}
-          className="btn btn-warning"
-        >
-          Rozrywka
-        </button>
         <button
           onClick={() => handleCategory("dom")}
           className="btn btn-warning"
@@ -82,7 +79,10 @@ function FlashCardList() {
           Zresetuj wszystkie
         </button>
       </div>
-      <h2>Wszystkie fiszki:</h2>
+      <div className="text-center  mt-3">
+        <h2>Lista fiszek</h2>
+        <p>kategoria: {categoryName}</p>
+      </div>
       <ul>
         {filteredData.length > 0 ? (
           filteredData

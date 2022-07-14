@@ -1,209 +1,532 @@
 [
-  {
-    "id": 1,
-    "polish": ["kot", "koteł"],
-    "english": "cat",
-    "category": "zwierzeta"
-  },
+  { "id": 1, "polish": ["żmija"], "english": "viper", "category": "zwierzeta" },
   {
     "id": 2,
-    "polish": ["pies", "pieseł"],
-    "english": "dog",
+    "polish": ["aligator"],
+    "english": "alligator",
     "category": "zwierzeta"
   },
   {
     "id": 3,
-    "polish": ["mysz", "mysza"],
-    "english": "mause",
+    "polish": ["mrówka"],
+    "english": "ant",
     "category": "zwierzeta"
   },
   {
     "id": 4,
-    "polish": ["ptak"],
-    "english": "bird",
+    "polish": ["antylopa"],
+    "english": "antylope",
     "category": "zwierzeta"
   },
   {
     "id": 5,
-    "polish": ["lis"],
-    "english": "fox",
+    "polish": ["pawian"],
+    "english": "baboon",
     "category": "zwierzeta"
   },
   {
     "id": 6,
+    "polish": ["borsuk"],
+    "english": "badger",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 7,
+    "polish": ["nietoperz"],
+    "english": "bat",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 8,
     "polish": ["niedźwiedź"],
     "english": "bear",
     "category": "zwierzeta"
   },
   {
-    "id": 7,
-    "polish": ["kura"],
-    "english": "chicken",
-    "category": "zwierzeta"
-  },
-  {
     "id": 9,
-    "polish": ["krowa"],
-    "english": "cow",
+    "polish": ["bóbr"],
+    "english": "beaver",
     "category": "zwierzeta"
   },
   {
     "id": 10,
-    "polish": ["orzeł"],
-    "english": "eagle",
+    "polish": ["pszczoła"],
+    "english": "bee",
     "category": "zwierzeta"
   },
   {
     "id": 11,
-    "polish": ["ryba"],
-    "english": "fish",
+    "polish": ["żuk", "chrząszcz"],
+    "english": "beetle",
     "category": "zwierzeta"
   },
   {
     "id": 12,
-    "polish": ["słoń"],
-    "english": "elephant",
+    "polish": ["ptak"],
+    "english": "bird",
     "category": "zwierzeta"
   },
   {
     "id": 13,
-    "polish": ["sokół"],
-    "english": "falcon",
+    "polish": ["bizon"],
+    "english": "bison",
     "category": "zwierzeta"
   },
   {
     "id": 14,
-    "polish": ["goat"],
-    "english": "koza",
+    "polish": ["kos"],
+    "english": "blackbird",
     "category": "zwierzeta"
   },
   {
     "id": 15,
-    "polish": ["żaba"],
-    "english": "frog",
+    "polish": ["knur"],
+    "english": "boar",
     "category": "zwierzeta"
   },
   {
     "id": 16,
-    "polish": ["mucha"],
-    "english": "fly",
+    "polish": ["kozioł"],
+    "english": "buck",
     "category": "zwierzeta"
   },
   {
     "id": 17,
-    "polish": ["żyrafa"],
-    "english": "giraffe",
+    "polish": ["bawół"],
+    "english": "buffalo",
     "category": "zwierzeta"
   },
   {
     "id": 18,
-    "polish": ["gęś"],
-    "english": "goose",
+    "polish": ["wirus", "insekt", "robak"],
+    "english": "bug",
     "category": "zwierzeta"
   },
   {
     "id": 19,
-    "polish": ["goryl"],
-    "english": "gorilla",
+    "polish": ["byk"],
+    "english": "bull",
     "category": "zwierzeta"
   },
   {
     "id": 20,
-    "polish": ["koń"],
-    "english": "horse",
+    "polish": ["trzmiel"],
+    "english": "bumblebee",
     "category": "zwierzeta"
   },
   {
     "id": 21,
-    "polish": ["hiena"],
-    "english": "hyena",
+    "polish": ["motyl"],
+    "english": "butterfly",
     "category": "zwierzeta"
   },
   {
     "id": 22,
-    "polish": ["owad", "insekt"],
-    "english": "insect",
+    "polish": ["wielbłąd"],
+    "english": "camel",
     "category": "zwierzeta"
   },
   {
     "id": 23,
-    "polish": ["kangur"],
-    "english": "kangaroo",
+    "polish": ["kanarek"],
+    "english": "canary",
     "category": "zwierzeta"
   },
   {
     "id": 24,
-    "polish": ["lew"],
-    "english": "lion",
+    "polish": ["kot"],
+    "english": "cat",
     "category": "zwierzeta"
   },
   {
     "id": 25,
-    "polish": ["jaszczurka"],
-    "english": "lizard",
+    "polish": ["gąsienica"],
+    "english": "caterpillar",
     "category": "zwierzeta"
   },
   {
     "id": 26,
-    "polish": ["lama"],
-    "english": "llama",
+    "polish": ["sum"],
+    "english": "catfish",
     "category": "zwierzeta"
   },
   {
     "id": 27,
-    "polish": ["ryś"],
-    "english": "lynx",
+    "polish": ["kameleon"],
+    "english": "kameleon",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 28,
+    "polish": ["gepard"],
+    "english": "cheetah",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 29,
+    "polish": ["szympans"],
+    "english": "chimpanzee",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 30,
+    "polish": ["karaluch"],
+    "english": "cockroach",
     "category": "zwierzeta"
   },
 
   {
     "id": 31,
-    "polish": ["nisko", "niski", "niskie"],
-    "english": "low",
-    "category": "szkoła"
+    "polish": ["dorsz"],
+    "english": "cod",
+    "category": "zwierzeta"
   },
   {
     "id": 32,
-    "polish": ["wysoki", "wysoki", "wysoko"],
-    "english": "high",
-    "category": "szkoła"
-  },
-  { "id": 33, "polish": ["duży", "duże", "duża"], "english": "big" },
-  { "id": 34, "polish": ["mały", "małe", "mała"], "english": "small" },
-  { "id": 35, "polish": ["samochód", "auto"], "english": "car" },
-  { "id": 36, "polish": ["dom"], "english": "house" },
-  { "id": 37, "polish": ["karty"], "english": "cards", "category": "rozrywka" },
-  { "id": 38, "polish": ["świat"], "english": "world" },
-  { "id": 39, "polish": ["film"], "english": "movie", "category": "rozrywka" },
-  {
-    "id": 40,
-    "polish": ["muzyka"],
-    "english": "music",
-    "category": "rozrywka"
+    "polish": ["krowa"],
+    "english": "cow",
+    "category": "zwierzeta"
   },
   {
-    "id": 40,
-    "polish": ["teatr"],
-    "english": "theater",
-    "category": "rozrywka"
+    "id": 33,
+    "polish": ["żuraw"],
+    "english": "crane",
+    "category": "zwierzeta"
   },
-  { "id": 41, "polish": ["kino"], "english": "cinema", "category": "rozrywka" },
-  { "id": 42, "polish": ["szkoła"], "english": "school" },
-  { "id": 43, "polish": ["lekcja", "nauczka"], "english": "lesson" },
+  {
+    "id": 34,
+    "polish": ["krokodyl"],
+    "english": "crocodile",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 35,
+    "polish": ["jeleń"],
+    "english": "deer",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 36,
+    "polish": ["mucha"],
+    "english": "fly",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 37,
+    "polish": ["sarna", "łania"],
+    "english": "doe",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 38,
+    "polish": ["pies"],
+    "english": "dog",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 39,
+    "polish": ["delfin"],
+    "english": "dolphin",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 40,
+    "polish": ["osioł"],
+    "english": "donkey",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 41,
+    "polish": ["gołębica"],
+    "english": "dove",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 43,
+    "polish": ["ważka"],
+    "english": "dragonfly",
+    "category": "zwierzeta"
+  },
   {
     "id": 44,
-    "polish": ["wycieczka"],
-    "english": "trip",
-    "category": "rozrywka"
+    "polish": ["kaczor"],
+    "english": "drake",
+    "category": "zwierzeta"
   },
   {
     "id": 45,
-    "polish": ["podróż", "wycieczka"],
-    "english": "journey",
-    "category": "rozrywka"
+    "polish": ["orzeł"],
+    "english": "eagle",
+    "category": "zwierzeta"
   },
-  { "id": 46, "polish": ["miska"], "english": "bowl" },
-  { "id": 47, "polish": ["kabel", "przewód"], "english": "cable" },
-  { "id": 48, "polish": ["klucz"], "english": "key" },
-  { "id": 49, "polish": ["biurko"], "english": "desk" }
+  {
+    "id": 46,
+    "polish": ["słoń"],
+    "english": "elephant",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 47,
+    "polish": ["sokół"],
+    "english": "falcon",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 48,
+    "polish": ["ryba"],
+    "english": "fish",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 49,
+    "polish": ["flaming"],
+    "english": "flamingo",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 50,
+    "polish": ["lis"],
+    "english": "fox",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 51,
+    "polish": ["żaba"],
+    "english": "frog",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 52,
+    "polish": ["żyrafa"],
+    "english": "giraffe",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 53,
+    "polish": ["gęś"],
+    "english": "goose",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 54,
+    "polish": ["goryl"],
+    "english": "gorilla",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 55,
+    "polish": ["chomik"],
+    "english": "hamster",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 56,
+    "polish": ["zając"],
+    "english": "hare",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 57,
+    "polish": ["jastrząb"],
+    "english": "hawk",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 58,
+    "polish": ["jeż"],
+    "english": "hedgehog",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 59,
+    "polish": ["czapla"],
+    "english": "heron",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 60,
+    "polish": ["śledź"],
+    "english": "herring",
+    "category": "zwierzeta"
+  },
+  {
+    "id": 201,
+    "polish": ["antena"],
+    "english": "aerial",
+    "category": "dom"
+  },
+  {
+    "id": 202,
+    "polish": ["apartament", "mieszkanie"],
+    "english": "apartment",
+    "category": "dom"
+  },
+  {
+    "id": 203,
+    "polish": ["teren", "obszar"],
+    "english": "area",
+    "category": "dom"
+  },
+  {
+    "id": 204,
+    "polish": ["strych", "poddasze"],
+    "english": "attic",
+    "category": "dom"
+  },
+  {
+    "id": 205,
+    "polish": ["piwnica"],
+    "english": "basement",
+    "category": "dom"
+  },
+  {
+    "id": 206,
+    "polish": ["miednica", "umywalka", "misa"],
+    "english": "basin",
+    "category": "dom"
+  },
+  {
+    "id": 207,
+    "polish": ["wanna", "kąpiel"],
+    "english": "bath",
+    "category": "dom"
+  },
+  {
+    "id": 208,
+    "polish": ["szlafrok"],
+    "english": "bathrobe",
+    "category": "dom"
+  },
+  {
+    "id": 209,
+    "polish": ["łazienka"],
+    "english": "bathroom",
+    "category": "dom"
+  },
+  {
+    "id": 210,
+    "polish": ["bateria", "kran"],
+    "english": "battery",
+    "category": "dom"
+  },
+  {
+    "id": 211,
+    "polish": ["łóżko"],
+    "english": "bed",
+    "category": "dom"
+  },
+  {
+    "id": 212,
+    "polish": ["pościel"],
+    "english": "bedding",
+    "category": "dom"
+  },
+  {
+    "id": 213,
+    "polish": ["sypialnia"],
+    "english": "bedroom",
+    "category": "dom"
+  },
+  {
+    "id": 214,
+    "polish": ["kawalerka"],
+    "english": "bedsit",
+    "category": "dom"
+  },
+  {
+    "id": 215,
+    "polish": ["dzwonek", "dzwon"],
+    "english": "bell",
+    "category": "dom"
+  },
+  {
+    "id": 216,
+    "polish": ["bidet"],
+    "english": "bidet",
+    "category": "dom"
+  },
+  {
+    "id": 217,
+    "polish": ["zaluzja", "zaluzje"],
+    "english": "blind",
+    "category": "dom"
+  },
+  {
+    "id": 218,
+    "polish": ["półka na książki"],
+    "english": "bookshelf",
+    "category": "dom"
+  },
+  {
+    "id": 219,
+    "polish": ["biblioteczka"],
+    "english": "bookcase",
+    "category": "dom"
+  },
+  {
+    "id": 220,
+    "polish": ["miska"],
+    "english": "bowl",
+    "category": "dom"
+  },
+  {
+    "id": 221,
+    "polish": ["cegła"],
+    "english": "brick",
+    "category": "dom"
+  },
+  {
+    "id": 222,
+    "polish": ["budynek"],
+    "english": "building",
+    "category": "dom"
+  },
+  {
+    "id": 223,
+    "polish": ["dom parterowy"],
+    "english": "bungalow",
+    "category": "dom"
+  },
+  {
+    "id": 224,
+    "polish": ["szafka"],
+    "english": "cabinet",
+    "category": "dom"
+  },
+  {
+    "id": 225,
+    "polish": ["centralne ogrzewanie"],
+    "english": "central heating",
+    "category": "dom"
+  },
+  {
+    "id": 226,
+    "polish": ["zegar"],
+    "english": "clock",
+    "category": "dom"
+  },
+  {
+    "id": 227,
+    "polish": ["materiał", "tkanina", "ścierka", "obrus"],
+    "english": "cloth",
+    "category": "dom"
+  },
+  {
+    "id": 228,
+    "polish": ["korytarz"],
+    "english": "corridor",
+    "category": "dom"
+  },
+  {
+    "id": 229,
+    "polish": ["kosmetyki"],
+    "english": "cosmetics",
+    "category": "dom"
+  },
+  {
+    "id": 230,
+    "polish": ["przytulny"],
+    "english": "cosy",
+    "category": "dom"
+  }
 ]

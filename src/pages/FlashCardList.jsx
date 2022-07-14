@@ -50,6 +50,38 @@ function FlashCardList() {
       className={`shadow-sm p-5 mb-5 mt-2 rounded appear
       ${dark ? "bg-dark text-light" : "bg-light text-dark"}`}
     >
+      <div className="d-flex justify-content-center gap-3">
+        <button
+          onClick={() => handleCategory("zwierzeta")}
+          className="btn btn-warning"
+        >
+          Zwierzęta
+        </button>
+
+        <button
+          onClick={() => handleCategory("rozrywka")}
+          className="btn btn-warning"
+        >
+          Rozrywka
+        </button>
+        <button
+          onClick={() => handleCategory("dom")}
+          className="btn btn-warning"
+        >
+          Dom
+        </button>
+        <button
+          onClick={() => handleCategory("wszystkie")}
+          className="btn btn-warning"
+        >
+          Wszystkie
+        </button>
+      </div>
+      <div className="d-flex justify-content-center mt-3">
+        <button onClick={handleReset} className="btn btn-danger">
+          Zresetuj wszystkie
+        </button>
+      </div>
       <h2>Wszystkie fiszki:</h2>
       <ul>
         {filteredData.length > 0 ? (
@@ -95,32 +127,6 @@ function FlashCardList() {
           </>
         )}
       </ul>
-      <div className="d-flex justify-content-center gap-3">
-        <button
-          onClick={() => handleCategory("zwierzeta")}
-          className="btn btn-warning"
-        >
-          Zwierzęta
-        </button>
-
-        <button
-          onClick={() => handleCategory("rozrywka")}
-          className="btn btn-warning"
-        >
-          Rozrywka
-        </button>
-        <button
-          onClick={() => handleCategory("wszystkie")}
-          className="btn btn-warning"
-        >
-          Wszystkie
-        </button>
-      </div>
-      <div className="d-flex justify-content-center mt-3">
-        <button onClick={handleReset} className="btn btn-danger">
-          Zresetuj wszystkie
-        </button>
-      </div>
     </div>
   );
 }

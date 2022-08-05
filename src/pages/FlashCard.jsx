@@ -104,7 +104,7 @@ function FlashCard() {
         handleSuccessAnimation();
 
         !mute && correctSound.play();
-
+        randomIndex();
         // ANSWER CORRECT, ONLY HINT ON
       } else if (
         (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
@@ -118,7 +118,7 @@ function FlashCard() {
       ) {
         !mute && correctSound.play();
         handleSuccessAnimation();
-
+        randomIndex();
         //  ANSWER CORRECT, ONLY ANSWER ON
       } else if (
         (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
@@ -134,7 +134,7 @@ function FlashCard() {
         setStreak((prev) => prev + 1);
         handleSuccessAnimation();
         !mute && correctSound.play();
-
+        randomIndex();
         // ANSWER CORRECT, ANSWER AND HINT ON
       } else if (
         (filteredData[i].polish.includes(answer.replace(/ /g, "")) &&
@@ -148,22 +148,26 @@ function FlashCard() {
       ) {
         handleSuccessAnimation();
         !mute && correctSound.play();
+        randomIndex();
       } else {
-        setStreak(0);
-        !mute && wrongSound.play();
-        handleFailAnimation();
         // show correct answer
+
         setShowCorrectAnswer(true);
         setTimeout(() => {
           setShowCorrectAnswer(false);
-        }, 1200);
+          randomIndex();
+        }, 1000);
+
+        setStreak(0);
+        !mute && wrongSound.play();
+        handleFailAnimation();
       }
     };
 
     // check answer
     isCorrect();
     // get bew rabdin ubdex
-    randomIndex();
+    // randomIndex();
     // focus on input
     answerInput.current.focus();
     // reset hint
@@ -333,6 +337,7 @@ function FlashCard() {
         </div>
       </div>
       <Modal
+        style={{ transition: "all 0s" }}
         show={showCorrectAnswer}
         onHide={() => setShowCorrectAnswer(false)}
       >
@@ -351,7 +356,6 @@ function FlashCard() {
           </p>
         </div>
       </Modal>
-      {/* // <Modal show={newCard} onHide={() => setNewCard(false)}> */}
       <Hints />
     </div>
   );

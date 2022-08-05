@@ -48,7 +48,7 @@ function App() {
             opacity: "0.7",
           }}
         >
-          Copyrights M.A. {new Date().toLocaleDateString().slice(6, 10)} &copy;
+          Copyrights M.A. {new Date().toLocaleDateString().slice(-4)} &copy;
         </h5>
       </footer>
     </div>

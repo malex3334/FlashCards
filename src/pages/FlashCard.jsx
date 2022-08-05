@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { DataContext } from "../context/DataContext";
+import { Modal } from "react-bootstrap";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
 import Hints from "../components/Hints";
@@ -37,6 +38,7 @@ function FlashCard() {
   const [points, setPoints] = useState(0);
   const [streak, setStreak] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [successAnimation, setSuccessAnimation] = useState(false);
   const [failAnimation, setFailAnimation] = useState(false);
   const [bestStreak, setBestStreak] = useState(
@@ -150,6 +152,11 @@ function FlashCard() {
         setStreak(0);
         !mute && wrongSound.play();
         handleFailAnimation();
+        // show correct answer
+        setShowCorrectAnswer(true);
+        setTimeout(() => {
+          setShowCorrectAnswer(false);
+        }, 1200);
       }
     };
 
@@ -325,6 +332,26 @@ function FlashCard() {
           </form>
         </div>
       </div>
+      <Modal
+        show={showCorrectAnswer}
+        onHide={() => setShowCorrectAnswer(false)}
+      >
+        <div
+          className={`container p-3 d-flex flex-column justify-content-center align-items-start p-3 border border-3 border-success ${
+            dark ? "text-white bg-dark  " : "bg-success text-white"
+          }`}
+        >
+          <h5>Poprawna odpowiedź:</h5>
+          <p
+            style={{ textAlign: "center" }}
+            className="text-centered display-3"
+          >
+            {filteredData && filteredData[i]?.polish[0]}{" "}
+            <PLFlag style={{ width: "40px" }} />
+          </p>
+        </div>
+      </Modal>
+      {/* // <Modal show={newCard} onHide={() => setNewCard(false)}> */}
       <Hints />
     </div>
   );

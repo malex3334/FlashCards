@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# FlashCards App
+
+https://fiszki-ang.netlify.app
+
+![image](https://user-images.githubusercontent.com/99325577/183243444-213dd02d-c1ec-4762-ab4a-4bb30e52285d.png)
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

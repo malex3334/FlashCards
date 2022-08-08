@@ -1,11 +1,17 @@
 # FlashCards App
 
+FlashCards App - english words to polish and practice your language skills.
+
 https://fiszki-ang.netlify.app
 
-![image](https://user-images.githubusercontent.com/99325577/183243444-213dd02d-c1ec-4762-ab4a-4bb30e52285d.png)
+![Recording 2022-08-08 at 09 43 36](https://user-images.githubusercontent.com/99325577/183366656-73fd4d42-1a4e-4968-8703-a64ce67f1b2c.gif)
 
+## App made using React Framework
+This is my firs React project built from scratch - hope you like it. I would gladly hear any suggestions!
 
-## Getting Started with Create React App
+--
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -66,6 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 
 ### Advanced Configuration
 
+
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
@@ -75,3 +82,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+![image](https://user-images.githubusercontent.com/99325577/183243444-213dd02d-c1ec-4762-ab4a-4bb30e52285d.png)

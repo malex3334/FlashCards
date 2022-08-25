@@ -10,6 +10,11 @@ function FlashCardList() {
   const { data, setData, dark, filteredData, setFilteredData } =
     useContext(DataContext);
 
+  const allCategories = [
+    "wszystkie",
+    ...new Set(data.map((item) => item.category)),
+  ];
+
   const handleDelete = (id) => {
     setData((prevData) =>
       prevData.filter((ex) => {
@@ -54,25 +59,19 @@ function FlashCardList() {
       ${dark ? "bg-dark text-light" : "bg-light text-dark"}`}
     >
       <div className="d-flex justify-content-center gap-3">
-        <button
-          onClick={() => handleCategory("zwierzeta")}
-          className="btn btn-warning"
-        >
-          Zwierzęta
-        </button>
-
-        <button
-          onClick={() => handleCategory("dom")}
-          className="btn btn-warning"
-        >
-          Dom
-        </button>
-        <button
-          onClick={() => handleCategory("wszystkie")}
-          className="btn btn-warning"
-        >
-          Wszystkie
-        </button>
+        {allCategories.map((element) => {
+          console.log(element);
+          return (
+            <button
+              style={{ textTransform: "capitalize" }}
+              key={element}
+              onClick={() => handleCategory(element)}
+              className="btn btn-warning"
+            >
+              {element}
+            </button>
+          );
+        })}
       </div>
       <div className="d-flex justify-content-center mt-3">
         <button onClick={handleReset} className="btn btn-danger">
@@ -81,7 +80,7 @@ function FlashCardList() {
       </div>
       <div className="text-center  mt-3">
         <h2>Lista fiszek</h2>
-        <p>kategoria: {categoryName}</p>
+        {/* <p>kategoria: {categoryName}</p> */}
       </div>
       <ul>
         {filteredData.length > 0 ? (

@@ -60,7 +60,6 @@ function FlashCardList() {
     >
       <div className="d-flex justify-content-center gap-3">
         {allCategories.map((element) => {
-          console.log(element);
           return (
             <button
               style={{ textTransform: "capitalize" }}

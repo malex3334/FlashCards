@@ -68,7 +68,6 @@ function FlashCard() {
   const randomIndex = () => {
     const newIndex = Math.floor(Math.random() * filteredData.length);
     setI(newIndex);
-    console.log(i);
   };
 
   useEffect(() => {

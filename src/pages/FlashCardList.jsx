@@ -80,7 +80,7 @@ function FlashCardList() {
       </div>
       <div className="text-center  mt-3">
         <h2>Lista fiszek</h2>
-        {/* <p>kategoria: {categoryName}</p> */}
+        <p>kategoria: {categoryName.toUpperCase()}</p>
       </div>
       <ul>
         {filteredData.length > 0 ? (

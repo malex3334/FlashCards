@@ -176,6 +176,18 @@ function FlashCard() {
     setShowAnswer(false);
   };
 
+  function handleSkipAnswer() {
+    setShowCorrectAnswer(true);
+    setTimeout(() => {
+      setShowCorrectAnswer(false);
+      randomIndex();
+    }, 1000);
+    setShowAnswer(false);
+    setStreak(0);
+    !mute && wrongSound.play();
+    handleFailAnimation();
+  }
+
   // fetch dictionary filteredData
 
   const fetchDescription = async (word) => {
@@ -276,11 +288,12 @@ function FlashCard() {
 
       {/* ########## FLASHCARD BODY ######### */}
       <div
+        style={{ position: "relative" }}
         className={`d-flex justify-content-center 
         `}
       >
         <div
-          className={` shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded ${
+          className={` shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded d-flex flex-column align-items-center ${
             dark ? "border border-3 border-success" : "bg-success"
           } ${successAnimation ? "correct" : ""} ${
             failAnimation ? "incorrect" : ""
@@ -303,12 +316,14 @@ function FlashCard() {
                     </span>
                   )}
                 </p>
-                <button
-                  onClick={handleShowAnswer}
-                  className="btn btn-sm btn-warning ms-4 "
-                >
-                  odp
-                </button>
+                <div className="button-container d-flex flex-column gap-1">
+                  <button
+                    onClick={handleShowAnswer}
+                    className="btn btn-sm btn-warning ms-4 mb-1 "
+                  >
+                    odpowiedź
+                  </button>
+                </div>
               </>
             )}
             {showAnswer && (
@@ -332,6 +347,10 @@ function FlashCard() {
               value={answer}
             />
             <button className="btn btn-warning ms-2">Sprawdź!</button>
+            <button className="btn btn-danger ms-2" onClick={handleSkipAnswer}>
+              pomiń
+            </button>
+            {/* <button className="btn btn-warning ms-2">Sprawdź!</button> */}
           </form>
         </div>
       </div>

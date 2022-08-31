@@ -49,6 +49,14 @@ function FlashCard() {
 
   const [notification, setNotification] = useState("");
 
+  const bgClass = () => {
+    const ratio = 10;
+    const streakPercent = streak * ratio;
+
+    if (streakPercent < 100) {
+      return `${streakPercent}%`;
+    } else return "100%";
+  };
   //success animation
   const handleSuccessAnimation = () => {
     setSuccessAnimation(true);
@@ -221,7 +229,7 @@ function FlashCard() {
 
   return (
     <div
-      className={`shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded
+      className={` shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded
         ${dark ? "bg-dark" : "bg-white"}`}
     >
       <div className="d-flex align-items-center justify-content-around">
@@ -288,17 +296,18 @@ function FlashCard() {
 
       {/* ########## FLASHCARD BODY ######### */}
       <div
-        style={{ position: "relative" }}
-        className={`d-flex justify-content-center 
+        // style={{ position: "relative" }}
+        className={` d-flex justify-content-center 
         `}
       >
         <div
-          className={` shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded d-flex flex-column align-items-center ${
+          className={`flashcard shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded d-flex flex-column align-items-center ${
             dark ? "border border-3 border-success" : "bg-success"
           } ${successAnimation ? "correct" : ""} ${
             failAnimation ? "incorrect" : ""
           }`}
         >
+          <div style={{ height: bgClass() }} className="flashcard-bg"></div>
           <p className="text-center ">{streak > 1 ? notification : null}</p>
           <div className="d-flex align-items-center text-centered-text-white display-3">
             {!showAnswer && (

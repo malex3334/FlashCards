@@ -50,7 +50,7 @@ function FlashCard() {
   const [notification, setNotification] = useState("");
 
   const bgClass = () => {
-    const ratio = 10;
+    const ratio = 5;
     const streakPercent = streak * ratio;
 
     if (streakPercent < 100) {

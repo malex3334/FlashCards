@@ -230,7 +230,7 @@ function FlashCard() {
   return (
     <div
       className={` shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded
-        ${dark ? "bg-dark" : "bg-white"}`}
+        ${dark ? "bg-dark" : "bg-light"}`}
     >
       <div className="d-flex align-items-center justify-content-around">
         <button
@@ -302,7 +302,7 @@ function FlashCard() {
       >
         <div
           className={`flashcard shadow ps-5 pe-5 pb-4 mb-2 mt-1 rounded d-flex flex-column align-items-center ${
-            dark ? "border border-3 border-success" : "bg-success"
+            dark ? "border border-3 border-success" : "bg-secondary"
           } ${successAnimation ? "correct" : ""} ${
             failAnimation ? "incorrect" : ""
           }`}

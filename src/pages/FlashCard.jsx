@@ -19,13 +19,9 @@ const wrongSound = new Audio(WrongSound);
 function FlashCard() {
   const answerInput = useRef();
   const {
-    data,
-    setData,
     dark,
-    setDark,
     hint,
     setHint,
-    dictionary,
     setDictionary,
     mute,
     setMute,
@@ -187,33 +183,25 @@ function FlashCard() {
   function handleSkipAnswer() {
     setShowCorrectAnswer(true);
     setTimeout(() => {
-      setShowCorrectAnswer(false);
       randomIndex();
+      setShowCorrectAnswer(false);
     }, 1000);
     setShowAnswer(false);
     setStreak(0);
+    setHint(false);
+
     !mute && wrongSound.play();
     handleFailAnimation();
   }
-
-  // fetch dictionary filteredData
-
-  const fetchDescription = async (word) => {
-    const res = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-    );
-    const parsedRes = await res.json();
-    setDictionary(parsedRes);
-  };
 
   const handleShowAnswer = () => {
     setShowAnswer(true);
     answerInput.current.focus();
   };
 
-  useEffect(() => {
-    fetchDescription(filteredData && filteredData[i]?.english);
-  }, [i, filteredData]);
+  // useEffect(() => {
+  //   fetchDescription(filteredData && filteredData[i]?.english);
+  // }, [i, filteredData]);
 
   useEffect(() => {
     answerInput.current.focus();
@@ -383,7 +371,7 @@ function FlashCard() {
           </p>
         </div>
       </Modal>
-      <Hints />
+      <Hints i={i} />
     </div>
   );
 }

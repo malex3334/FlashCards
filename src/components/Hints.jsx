@@ -2,9 +2,24 @@ import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { Modal } from "react-bootstrap";
 
-const Hints = () => {
-  const { dark, hint, setHint, dictionary } = useContext(DataContext);
+const Hints = ({ i }) => {
+  const { dark, hint, setHint, dictionary, setDictionary, filteredData } =
+    useContext(DataContext);
   const [infoOpen, setInfoOpen] = useState(false);
+
+  // fetch dictionary filteredData
+
+  const fetchDescription = async (word) => {
+    try {
+      const res = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+      );
+      const parsedRes = await res.json();
+      setDictionary(parsedRes);
+    } catch (error) {
+      console.log("fetch failed");
+    }
+  };
 
   const audio = new Audio(
     !dictionary[0]?.phonetics[0]?.audio
@@ -21,7 +36,10 @@ const Hints = () => {
 
         <button
           className="mt-2 mb-2 btn btn-danger"
-          onClick={() => setHint(true)}
+          onClick={() => {
+            fetchDescription(filteredData[i].english);
+            setHint(true);
+          }}
         >
           Podpowiedź?
         </button>
@@ -56,18 +74,25 @@ const Hints = () => {
           <div className="d-flex">
             <h2>{dictionary[0]?.word}</h2>
 
-            <button onClick={() => audio.play()} className="btn btn-sm">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill={dark ? "white" : "black"}
-                className="bi bi-play"
-                viewBox="0 0 16 16"
+            {!audio.src ? null : (
+              <button
+                onClick={() => {
+                  audio.play();
+                }}
+                className="btn btn-sm"
               >
-                <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill={dark ? "white" : "black"}
+                  className="bi bi-play"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
+                </svg>
+              </button>
+            )}
           </div>
 
           <p>

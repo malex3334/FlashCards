@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { DataContext } from "./context/DataContext";
-
 import FlashCard from "./pages/FlashCard";
 import FlashCardForm from "./pages/FlashCardForm";
 import FlashCardList from "./pages/FlashCardList";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const { newCard, setNewCard } = useContext(DataContext);
+  const { newCard, setNewCard, lang } = useContext(DataContext);
 
   return (
     <div className="container p-0 p-sm-3">

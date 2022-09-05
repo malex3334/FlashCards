@@ -1,20 +1,62 @@
 [
   {
     "id": 1,
-    "polish": ["słońce"],
-    "translate": "sol",
+    "polish": ["cześć"],
+    "translate": "hola",
     "category": "ogólna"
   },
   {
     "id": 2,
-    "polish": ["iść"],
-    "translate": "ir",
+    "polish": ["dzień dobry"],
+    "translate": "buenos dias",
     "category": "ogólna"
   },
   {
     "id": 3,
-    "polish": ["śmiech"],
-    "translate": "reir",
+    "polish": ["jutro"],
+    "translate": "manana",
+    "category": "ogólna"
+  },
+  {
+    "id": 4,
+    "polish": ["wczoraj"],
+    "translate": "ayer",
+    "category": "ogólna"
+  },
+  {
+    "id": 5,
+    "polish": ["dzisiaj"],
+    "translate": "hoy",
+    "category": "ogólna"
+  },
+  {
+    "id": 6,
+    "polish": ["nie rozumiem"],
+    "translate": "no entiendo",
+    "category": "ogólna"
+  },
+  {
+    "id": 7,
+    "polish": ["zamknięte"],
+    "translate": "cerrado",
+    "category": "ogólna"
+  },
+  {
+    "id": 8,
+    "polish": ["plaża"],
+    "translate": "la playa",
+    "category": "ogólna"
+  },
+  {
+    "id": 9,
+    "polish": ["dziękuję"],
+    "translate": "gracias",
+    "category": "ogólna"
+  },
+  {
+    "id": 10,
+    "polish": ["proszę"],
+    "translate": "por favor",
     "category": "ogólna"
   }
 ]

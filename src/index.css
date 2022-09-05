@@ -13,6 +13,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.esp-bg {
+  background-image: url("./utils/bgESP.png");
+}
+.eng-bg {
+  background-image: url("./utils/bg.png");
+}
+
 /* .container {
   border: solid black 2px;
 } */

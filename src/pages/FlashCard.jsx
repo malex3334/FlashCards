@@ -6,6 +6,7 @@ import WrongSound from "../sounds/wrong.mp3";
 import Hints from "../components/Hints";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
+import { ReactComponent as ESPFlag } from "../utils/esp.svg";
 import { ReactComponent as MuteIcon } from "../utils/mute.svg";
 import { ReactComponent as UnmuteIcon } from "../utils/unmute.svg";
 import { ReactComponent as DarkMode } from "../utils/dm.svg";
@@ -47,11 +48,20 @@ function FlashCard() {
   );
 
   const [notification, setNotification] = useState("");
-  const handleLang = () => {
+  let bodyImg = document.querySelector("body");
+  const handleChangeLang = () => {
     if (lang === "ENGLISH") {
       setLang("SPANISH");
+      setData(handleLang("SPANISH"));
+      setFilteredData(handleLang("SPANISH"));
+      bodyImg.classList.remove("eng-bg");
+      bodyImg.classList.add("esp-bg");
     } else {
       setLang("ENGLISH");
+      setData(handleLang("ENGLISH"));
+      setFilteredData(handleLang("ENGLISH"));
+      bodyImg.classList.remove("esp-bg");
+      bodyImg.classList.add("eng-bg");
     }
   };
 
@@ -86,7 +96,7 @@ function FlashCard() {
 
   useEffect(() => {
     randomIndex();
-  }, [setFilteredData]);
+  }, [setFilteredData, lang]);
 
   const handleAnswerSubmit = (e) => {
     e.preventDefault();
@@ -243,14 +253,20 @@ function FlashCard() {
           )}
         </button>
 
-        <h1
-          onClick={handleLang}
-          className={`display-2 mb-3 mt-3 text-center  ${
+        <div
+          onClick={handleChangeLang}
+          className={`display-2 mb-3 mt-3 text-center d-flex align-items-center justify-content-around gap-3 ${
             dark ? "text-light" : "text-dark"
           }`}
         >
-          Fiszki <UKFlag style={{ width: "80px", height: "80px" }} />
-        </h1>
+          <h1>Fiszki</h1>
+          {lang === "ENGLISH" ? (
+            <UKFlag style={{ width: "80px", height: "80px" }} />
+          ) : (
+            <ESPFlag style={{ width: "80px", height: "60px" }} />
+          )}
+        </div>
+
         {mute && (
           <button
             onClick={() => setMute(false)}

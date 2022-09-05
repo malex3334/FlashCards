@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useId, useState } from "react";
 import { DataContext } from "../context/DataContext";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
+import { ReactComponent as ESPFlag } from "../utils/esp.svg";
+
 import Data from "../data/data.json";
 import DataES from "../data/dataES.json";
 import { handleLang } from "../context/DataContext";
@@ -28,9 +30,12 @@ function FlashCardList() {
   const handleReset = () => {
     if (window.confirm("Na pewno zresetować bazę fiszek?")) {
       if (lang === "ENGLISH") {
+        localStorage.removeItem("data");
+        // localStorage.setItem();
         setData(Data);
       }
       if (lang === "SPANISH") {
+        localStorage.removeItem("dataES");
         setData(DataES);
       }
     } else {
@@ -42,7 +47,7 @@ function FlashCardList() {
     setData(handleLang(lang));
     setFilteredData(handleLang(lang));
     console.log("eu");
-  }, [lang, setLang]);
+  }, [lang]);
 
   // useEffect(() => {
   //   if (lang === "ENGLISH") {
@@ -117,7 +122,18 @@ function FlashCardList() {
                 >
                   &times;
                 </button>
-                <UKFlag style={{ height: "10px", marginRight: "10px" }} />
+                {lang === "ENGLISH" && (
+                  <UKFlag style={{ height: "10px", marginRight: "10px" }} />
+                )}
+                {lang === "SPANISH" && (
+                  <ESPFlag
+                    style={{
+                      height: "10px",
+                      width: "15px",
+                      marginRight: "10px",
+                    }}
+                  />
+                )}
                 {item.translate} &rarr;{" "}
                 <span>
                   <PLFlag className="me-2" style={{ height: "10px" }} />

@@ -3,7 +3,7 @@ import { DataContext } from "../context/DataContext";
 import { Modal } from "react-bootstrap";
 
 const Hints = ({ i }) => {
-  const { dark, hint, setHint, dictionary, setDictionary, filteredData } =
+  const { dark, hint, setHint, dictionary, setDictionary, filteredData, lang } =
     useContext(DataContext);
   const [infoOpen, setInfoOpen] = useState(false);
 
@@ -33,16 +33,17 @@ const Hints = ({ i }) => {
         <button onClick={() => setInfoOpen(true)} className="btn btn-info me-3">
           Zasady
         </button>
-
-        <button
-          className="mt-2 mb-2 btn btn-danger"
-          onClick={() => {
-            fetchDescription(filteredData[i].translate);
-            setHint(true);
-          }}
-        >
-          Podpowiedź?
-        </button>
+        {lang === "ENGLISH" && (
+          <button
+            className="mt-2 mb-2 btn btn-danger"
+            onClick={() => {
+              fetchDescription(filteredData[i].translate);
+              setHint(true);
+            }}
+          >
+            Podpowiedź?
+          </button>
+        )}
       </div>
       <Modal
         show={infoOpen}

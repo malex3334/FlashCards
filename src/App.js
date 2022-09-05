@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="container p-0 p-sm-3">
       <FlashCard />
-
+      {/* background color? */}
       <div className="d-flex justify-content-center mb-5">
         <button
           className="me-3 btn btn-warning"

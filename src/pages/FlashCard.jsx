@@ -237,7 +237,7 @@ function FlashCard() {
 
   return (
     <div
-      className={` shadow-sm p-5 mb-5 mt-0 mt-md-5 rounded
+      className={` shadow p-5 mb-5 mt-0 mt-md-5 rounded
         ${dark ? "bg-dark" : "bg-light"}`}
     >
       <div className="d-flex align-items-center justify-content-around">
@@ -261,9 +261,13 @@ function FlashCard() {
         >
           <h1>Fiszki</h1>
           {lang === "ENGLISH" ? (
-            <UKFlag style={{ width: "80px", height: "80px" }} />
+            <UKFlag
+              style={{ width: "80px", height: "80px", cursor: "pointer" }}
+            />
           ) : (
-            <ESPFlag style={{ width: "80px", height: "60px" }} />
+            <ESPFlag
+              style={{ width: "80px", height: "60px", cursor: "pointer" }}
+            />
           )}
         </div>
 

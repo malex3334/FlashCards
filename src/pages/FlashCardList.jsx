@@ -46,17 +46,7 @@ function FlashCardList() {
   useEffect(() => {
     setData(handleLang(lang));
     setFilteredData(handleLang(lang));
-    console.log("eu");
   }, [lang]);
-
-  // useEffect(() => {
-  //   if (lang === "ENGLISH") {
-  //     localStorage.setItem("data", JSON.stringify(data));
-  //   }
-  //   if (lang === "SPANISH") {
-  //     localStorage.setItem("dataES", JSON.stringify(data));
-  //   }
-  // }, [handleDelete]);
 
   const handleCategory = (id) => {
     // reset filters

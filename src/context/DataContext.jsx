@@ -11,7 +11,6 @@ export const handleLang = (language) => {
     } else return JSON.parse(localStorage.getItem("data"));
   }
   if (language === "SPANISH") {
-    console.log("esp");
     if (
       !localStorage.getItem("dataES") ||
       localStorage.getItem("dataES") === []
@@ -48,10 +47,6 @@ export function ThemeProvider({ children }) {
     setDark(!dark);
   };
 
-  const handleToggleMute = () => {
-    setMute(!mute);
-  };
-
   useEffect(() => {
     localStorage.setItem("mute", JSON.stringify(mute));
   });
@@ -59,12 +54,6 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(dark));
   }, [dark]);
-
-  // useEffect(() => {
-  //   if (data.length === 0) {
-  //     setData(Data);
-  //   }
-  // }, [data]);
 
   useEffect(() => {
     setFilteredData(data);

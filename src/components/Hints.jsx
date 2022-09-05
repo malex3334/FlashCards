@@ -37,7 +37,7 @@ const Hints = ({ i }) => {
         <button
           className="mt-2 mb-2 btn btn-danger"
           onClick={() => {
-            fetchDescription(filteredData[i].english);
+            fetchDescription(filteredData[i].translate);
             setHint(true);
           }}
         >

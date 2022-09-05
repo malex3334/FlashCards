@@ -1,14 +1,32 @@
 import { createContext, useState, useEffect } from "react";
 import Data from "../data/data.json";
+import DataES from "../data/dataES.json";
 
 export const DataContext = createContext();
 
+export const handleLang = (language) => {
+  if (language === "ENGLISH") {
+    if (!localStorage.getItem("data") || localStorage.getItem("data") === []) {
+      return Data;
+    } else return JSON.parse(localStorage.getItem("data"));
+  }
+  if (language === "SPANISH") {
+    console.log("esp");
+    if (
+      !localStorage.getItem("dataES") ||
+      localStorage.getItem("dataES") === []
+    ) {
+      return DataES;
+    } else {
+      return JSON.parse(localStorage.getItem("dataES"));
+    }
+  }
+};
+
 export function ThemeProvider({ children }) {
-  const [data, setData] = useState(
-    !localStorage.getItem("data") || localStorage.getItem("data") === []
-      ? Data
-      : JSON.parse(localStorage.getItem("data"))
-  );
+  const [lang, setLang] = useState("ENGLISH");
+
+  const [data, setData] = useState(handleLang(lang));
   // const [dark, setDark] = useState(true);
   const [dark, setDark] = useState(
     !localStorage.getItem("theme") || localStorage.getItem("theme") === []
@@ -70,6 +88,8 @@ export function ThemeProvider({ children }) {
         setMute,
         filteredData,
         setFilteredData,
+        lang,
+        setLang,
       }}
     >
       {children}

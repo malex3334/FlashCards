@@ -5,8 +5,9 @@ import { Modal } from "react-bootstrap";
 
 export default function FlashCardForm() {
   const inputRef = useRef();
-  const { data, setData, dark, newCard, setNewCard } = useContext(DataContext);
-  const [english, setEnglish] = useState("");
+  const { data, setData, dark, newCard, setNewCard, lang } =
+    useContext(DataContext);
+  const [translate, setTranslate] = useState("");
   const [polish, setPolish] = useState("");
   const [category, setCategory] = useState("");
   const randomID = useId();
@@ -16,9 +17,9 @@ export default function FlashCardForm() {
     e.preventDefault();
     setData((prevState) => [
       ...prevState,
-      { id: randomID, polish, english, category: category },
+      { id: randomID, polish, translate, category: category },
     ]);
-    setEnglish("");
+    setTranslate("");
     setPolish("");
     setCategory("");
     inputRef.current.focus();
@@ -34,7 +35,12 @@ export default function FlashCardForm() {
   }
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
+    if (lang === "ENGLISH") {
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+    if (lang === "SPANISH") {
+      localStorage.setItem("dataES", JSON.stringify(data));
+    }
   }, [handleSubmit]);
 
   useEffect(() => {
@@ -68,8 +74,8 @@ export default function FlashCardForm() {
                 minLength={3}
                 ref={inputRef}
                 type="text"
-                onChange={(e) => setEnglish(e.target.value.toLowerCase())}
-                value={english}
+                onChange={(e) => setTranslate(e.target.value.toLowerCase())}
+                value={translate}
               />
             </label>
             <label className="mb-3 ms-sm-3">

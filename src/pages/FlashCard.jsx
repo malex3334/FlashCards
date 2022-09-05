@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-import { DataContext } from "../context/DataContext";
+import { DataContext, handleLang } from "../context/DataContext";
 import { Modal } from "react-bootstrap";
 import CorrectSound from "../sounds/correct.mp3";
 import WrongSound from "../sounds/wrong.mp3";
@@ -19,6 +19,7 @@ const wrongSound = new Audio(WrongSound);
 function FlashCard() {
   const answerInput = useRef();
   const {
+    setData,
     dark,
     hint,
     setHint,
@@ -28,6 +29,8 @@ function FlashCard() {
     handleToggleTheme,
     filteredData,
     setFilteredData,
+    lang,
+    setLang,
   } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
   const [i, setI] = useState(0);
@@ -44,6 +47,13 @@ function FlashCard() {
   );
 
   const [notification, setNotification] = useState("");
+  const handleLang = () => {
+    if (lang === "ENGLISH") {
+      setLang("SPANISH");
+    } else {
+      setLang("ENGLISH");
+    }
+  };
 
   const bgClass = () => {
     const ratio = 5;
@@ -200,7 +210,7 @@ function FlashCard() {
   };
 
   // useEffect(() => {
-  //   fetchDescription(filteredData && filteredData[i]?.english);
+  //   fetchDescription(filteredData && filteredData[i]?.translate);
   // }, [i, filteredData]);
 
   useEffect(() => {
@@ -234,6 +244,7 @@ function FlashCard() {
         </button>
 
         <h1
+          onClick={handleLang}
           className={`display-2 mb-3 mt-3 text-center  ${
             dark ? "text-light" : "text-dark"
           }`}
@@ -302,7 +313,7 @@ function FlashCard() {
               <>
                 <p className="text-centered text-white display-3">
                   {filteredData.length > 0 ? (
-                    filteredData[i]?.english
+                    filteredData[i]?.translate
                   ) : (
                     <span
                       className={`display-5 ${

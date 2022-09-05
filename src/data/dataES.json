@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "polish": ["słońce"],
+    "translate": "sol",
+    "category": "ogólna"
+  },
+  {
+    "id": 2,
+    "polish": ["iść"],
+    "translate": "ir",
+    "category": "ogólna"
+  },
+  {
+    "id": 3,
+    "polish": ["śmiech"],
+    "translate": "reir",
+    "category": "ogólna"
+  }
+]

@@ -3,11 +3,13 @@ import { DataContext } from "../context/DataContext";
 import { ReactComponent as UKFlag } from "../utils/uk.svg";
 import { ReactComponent as PLFlag } from "../utils/pl.svg";
 import Data from "../data/data.json";
+import DataES from "../data/dataES.json";
+import { handleLang } from "../context/DataContext";
 
 function FlashCardList() {
   const [categoryName, setCategoryName] = useState("Wszystkie");
 
-  const { data, setData, dark, filteredData, setFilteredData } =
+  const { data, setData, dark, filteredData, setFilteredData, lang, setLang } =
     useContext(DataContext);
 
   const allCategories = [
@@ -25,15 +27,31 @@ function FlashCardList() {
 
   const handleReset = () => {
     if (window.confirm("Na pewno zresetować bazę fiszek?")) {
-      setData(Data);
+      if (lang === "ENGLISH") {
+        setData(Data);
+      }
+      if (lang === "SPANISH") {
+        setData(DataES);
+      }
     } else {
       return;
     }
   };
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(data));
-  }, [handleDelete]);
+    setData(handleLang(lang));
+    setFilteredData(handleLang(lang));
+    console.log("eu");
+  }, [lang, setLang]);
+
+  // useEffect(() => {
+  //   if (lang === "ENGLISH") {
+  //     localStorage.setItem("data", JSON.stringify(data));
+  //   }
+  //   if (lang === "SPANISH") {
+  //     localStorage.setItem("dataES", JSON.stringify(data));
+  //   }
+  // }, [handleDelete]);
 
   const handleCategory = (id) => {
     // reset filters
@@ -84,7 +102,7 @@ function FlashCardList() {
       <ul>
         {filteredData.length > 0 ? (
           filteredData
-            .sort((a, b) => a.english.localeCompare(b.english))
+            .sort((a, b) => a.translate.localeCompare(b.translate))
             .map((item) => (
               <li
                 className="fs-5"
@@ -100,7 +118,7 @@ function FlashCardList() {
                   &times;
                 </button>
                 <UKFlag style={{ height: "10px", marginRight: "10px" }} />
-                {item.english} &rarr;{" "}
+                {item.translate} &rarr;{" "}
                 <span>
                   <PLFlag className="me-2" style={{ height: "10px" }} />
                 </span>

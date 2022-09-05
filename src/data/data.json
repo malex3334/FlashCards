@@ -1,532 +1,537 @@
 [
-  { "id": 1, "polish": ["żmija"], "english": "viper", "category": "zwierzeta" },
+  {
+    "id": 1,
+    "polish": ["żmija"],
+    "translate": "viper",
+    "category": "zwierzeta"
+  },
   {
     "id": 2,
     "polish": ["aligator"],
-    "english": "alligator",
+    "translate": "alligator",
     "category": "zwierzeta"
   },
   {
     "id": 3,
     "polish": ["mrówka"],
-    "english": "ant",
+    "translate": "ant",
     "category": "zwierzeta"
   },
   {
     "id": 4,
     "polish": ["antylopa"],
-    "english": "antylope",
+    "translate": "antylope",
     "category": "zwierzeta"
   },
   {
     "id": 5,
     "polish": ["pawian"],
-    "english": "baboon",
+    "translate": "baboon",
     "category": "zwierzeta"
   },
   {
     "id": 6,
     "polish": ["borsuk"],
-    "english": "badger",
+    "translate": "badger",
     "category": "zwierzeta"
   },
   {
     "id": 7,
     "polish": ["nietoperz"],
-    "english": "bat",
+    "translate": "bat",
     "category": "zwierzeta"
   },
   {
     "id": 8,
     "polish": ["niedźwiedź"],
-    "english": "bear",
+    "translate": "bear",
     "category": "zwierzeta"
   },
   {
     "id": 9,
     "polish": ["bóbr"],
-    "english": "beaver",
+    "translate": "beaver",
     "category": "zwierzeta"
   },
   {
     "id": 10,
     "polish": ["pszczoła"],
-    "english": "bee",
+    "translate": "bee",
     "category": "zwierzeta"
   },
   {
     "id": 11,
     "polish": ["żuk", "chrząszcz"],
-    "english": "beetle",
+    "translate": "beetle",
     "category": "zwierzeta"
   },
   {
     "id": 12,
     "polish": ["ptak"],
-    "english": "bird",
+    "translate": "bird",
     "category": "zwierzeta"
   },
   {
     "id": 13,
     "polish": ["bizon"],
-    "english": "bison",
+    "translate": "bison",
     "category": "zwierzeta"
   },
   {
     "id": 14,
     "polish": ["kos"],
-    "english": "blackbird",
+    "translate": "blackbird",
     "category": "zwierzeta"
   },
   {
     "id": 15,
     "polish": ["knur"],
-    "english": "boar",
+    "translate": "boar",
     "category": "zwierzeta"
   },
   {
     "id": 16,
     "polish": ["kozioł"],
-    "english": "buck",
+    "translate": "buck",
     "category": "zwierzeta"
   },
   {
     "id": 17,
     "polish": ["bawół"],
-    "english": "buffalo",
+    "translate": "buffalo",
     "category": "zwierzeta"
   },
   {
     "id": 18,
     "polish": ["wirus", "insekt", "robak"],
-    "english": "bug",
+    "translate": "bug",
     "category": "zwierzeta"
   },
   {
     "id": 19,
     "polish": ["byk"],
-    "english": "bull",
+    "translate": "bull",
     "category": "zwierzeta"
   },
   {
     "id": 20,
     "polish": ["trzmiel"],
-    "english": "bumblebee",
+    "translate": "bumblebee",
     "category": "zwierzeta"
   },
   {
     "id": 21,
     "polish": ["motyl"],
-    "english": "butterfly",
+    "translate": "butterfly",
     "category": "zwierzeta"
   },
   {
     "id": 22,
     "polish": ["wielbłąd"],
-    "english": "camel",
+    "translate": "camel",
     "category": "zwierzeta"
   },
   {
     "id": 23,
     "polish": ["kanarek"],
-    "english": "canary",
+    "translate": "canary",
     "category": "zwierzeta"
   },
   {
     "id": 24,
     "polish": ["kot"],
-    "english": "cat",
+    "translate": "cat",
     "category": "zwierzeta"
   },
   {
     "id": 25,
     "polish": ["gąsienica"],
-    "english": "caterpillar",
+    "translate": "caterpillar",
     "category": "zwierzeta"
   },
   {
     "id": 26,
     "polish": ["sum"],
-    "english": "catfish",
+    "translate": "catfish",
     "category": "zwierzeta"
   },
   {
     "id": 27,
     "polish": ["kameleon"],
-    "english": "kameleon",
+    "translate": "kameleon",
     "category": "zwierzeta"
   },
   {
     "id": 28,
     "polish": ["gepard"],
-    "english": "cheetah",
+    "translate": "cheetah",
     "category": "zwierzeta"
   },
   {
     "id": 29,
     "polish": ["szympans"],
-    "english": "chimpanzee",
+    "translate": "chimpanzee",
     "category": "zwierzeta"
   },
   {
     "id": 30,
     "polish": ["karaluch"],
-    "english": "cockroach",
+    "translate": "cockroach",
     "category": "zwierzeta"
   },
 
   {
     "id": 31,
     "polish": ["dorsz"],
-    "english": "cod",
+    "translate": "cod",
     "category": "zwierzeta"
   },
   {
     "id": 32,
     "polish": ["krowa"],
-    "english": "cow",
+    "translate": "cow",
     "category": "zwierzeta"
   },
   {
     "id": 33,
     "polish": ["żuraw"],
-    "english": "crane",
+    "translate": "crane",
     "category": "zwierzeta"
   },
   {
     "id": 34,
     "polish": ["krokodyl"],
-    "english": "crocodile",
+    "translate": "crocodile",
     "category": "zwierzeta"
   },
   {
     "id": 35,
     "polish": ["jeleń"],
-    "english": "deer",
+    "translate": "deer",
     "category": "zwierzeta"
   },
   {
     "id": 36,
     "polish": ["mucha"],
-    "english": "fly",
+    "translate": "fly",
     "category": "zwierzeta"
   },
   {
     "id": 37,
     "polish": ["sarna", "łania"],
-    "english": "doe",
+    "translate": "doe",
     "category": "zwierzeta"
   },
   {
     "id": 38,
     "polish": ["pies"],
-    "english": "dog",
+    "translate": "dog",
     "category": "zwierzeta"
   },
   {
     "id": 39,
     "polish": ["delfin"],
-    "english": "dolphin",
+    "translate": "dolphin",
     "category": "zwierzeta"
   },
   {
     "id": 40,
     "polish": ["osioł"],
-    "english": "donkey",
+    "translate": "donkey",
     "category": "zwierzeta"
   },
   {
     "id": 41,
     "polish": ["gołębica"],
-    "english": "dove",
+    "translate": "dove",
     "category": "zwierzeta"
   },
   {
     "id": 43,
     "polish": ["ważka"],
-    "english": "dragonfly",
+    "translate": "dragonfly",
     "category": "zwierzeta"
   },
   {
     "id": 44,
     "polish": ["kaczor"],
-    "english": "drake",
+    "translate": "drake",
     "category": "zwierzeta"
   },
   {
     "id": 45,
     "polish": ["orzeł"],
-    "english": "eagle",
+    "translate": "eagle",
     "category": "zwierzeta"
   },
   {
     "id": 46,
     "polish": ["słoń"],
-    "english": "elephant",
+    "translate": "elephant",
     "category": "zwierzeta"
   },
   {
     "id": 47,
     "polish": ["sokół"],
-    "english": "falcon",
+    "translate": "falcon",
     "category": "zwierzeta"
   },
   {
     "id": 48,
     "polish": ["ryba"],
-    "english": "fish",
+    "translate": "fish",
     "category": "zwierzeta"
   },
   {
     "id": 49,
     "polish": ["flaming"],
-    "english": "flamingo",
+    "translate": "flamingo",
     "category": "zwierzeta"
   },
   {
     "id": 50,
     "polish": ["lis"],
-    "english": "fox",
+    "translate": "fox",
     "category": "zwierzeta"
   },
   {
     "id": 51,
     "polish": ["żaba"],
-    "english": "frog",
+    "translate": "frog",
     "category": "zwierzeta"
   },
   {
     "id": 52,
     "polish": ["żyrafa"],
-    "english": "giraffe",
+    "translate": "giraffe",
     "category": "zwierzeta"
   },
   {
     "id": 53,
     "polish": ["gęś"],
-    "english": "goose",
+    "translate": "goose",
     "category": "zwierzeta"
   },
   {
     "id": 54,
     "polish": ["goryl"],
-    "english": "gorilla",
+    "translate": "gorilla",
     "category": "zwierzeta"
   },
   {
     "id": 55,
     "polish": ["chomik"],
-    "english": "hamster",
+    "translate": "hamster",
     "category": "zwierzeta"
   },
   {
     "id": 56,
     "polish": ["zając"],
-    "english": "hare",
+    "translate": "hare",
     "category": "zwierzeta"
   },
   {
     "id": 57,
     "polish": ["jastrząb"],
-    "english": "hawk",
+    "translate": "hawk",
     "category": "zwierzeta"
   },
   {
     "id": 58,
     "polish": ["jeż"],
-    "english": "hedgehog",
+    "translate": "hedgehog",
     "category": "zwierzeta"
   },
   {
     "id": 59,
     "polish": ["czapla"],
-    "english": "heron",
+    "translate": "heron",
     "category": "zwierzeta"
   },
   {
     "id": 60,
     "polish": ["śledź"],
-    "english": "herring",
+    "translate": "herring",
     "category": "zwierzeta"
   },
   {
     "id": 201,
     "polish": ["antena"],
-    "english": "aerial",
+    "translate": "aerial",
     "category": "dom"
   },
   {
     "id": 202,
     "polish": ["apartament", "mieszkanie"],
-    "english": "apartment",
+    "translate": "apartment",
     "category": "dom"
   },
   {
     "id": 203,
     "polish": ["teren", "obszar"],
-    "english": "area",
+    "translate": "area",
     "category": "dom"
   },
   {
     "id": 204,
     "polish": ["strych", "poddasze"],
-    "english": "attic",
+    "translate": "attic",
     "category": "dom"
   },
   {
     "id": 205,
     "polish": ["piwnica"],
-    "english": "basement",
+    "translate": "basement",
     "category": "dom"
   },
   {
     "id": 206,
     "polish": ["miednica", "umywalka", "misa"],
-    "english": "basin",
+    "translate": "basin",
     "category": "dom"
   },
   {
     "id": 207,
     "polish": ["wanna", "kąpiel"],
-    "english": "bath",
+    "translate": "bath",
     "category": "dom"
   },
   {
     "id": 208,
     "polish": ["szlafrok"],
-    "english": "bathrobe",
+    "translate": "bathrobe",
     "category": "dom"
   },
   {
     "id": 209,
     "polish": ["łazienka"],
-    "english": "bathroom",
+    "translate": "bathroom",
     "category": "dom"
   },
   {
     "id": 210,
     "polish": ["bateria", "kran"],
-    "english": "battery",
+    "translate": "battery",
     "category": "dom"
   },
   {
     "id": 211,
     "polish": ["łóżko"],
-    "english": "bed",
+    "translate": "bed",
     "category": "dom"
   },
   {
     "id": 212,
     "polish": ["pościel"],
-    "english": "bedding",
+    "translate": "bedding",
     "category": "dom"
   },
   {
     "id": 213,
     "polish": ["sypialnia"],
-    "english": "bedroom",
+    "translate": "bedroom",
     "category": "dom"
   },
   {
     "id": 214,
     "polish": ["kawalerka"],
-    "english": "bedsit",
+    "translate": "bedsit",
     "category": "dom"
   },
   {
     "id": 215,
     "polish": ["dzwonek", "dzwon"],
-    "english": "bell",
+    "translate": "bell",
     "category": "dom"
   },
   {
     "id": 216,
     "polish": ["bidet"],
-    "english": "bidet",
+    "translate": "bidet",
     "category": "dom"
   },
   {
     "id": 217,
     "polish": ["zaluzja", "zaluzje"],
-    "english": "blind",
+    "translate": "blind",
     "category": "dom"
   },
   {
     "id": 218,
     "polish": ["półka na książki"],
-    "english": "bookshelf",
+    "translate": "bookshelf",
     "category": "dom"
   },
   {
     "id": 219,
     "polish": ["biblioteczka"],
-    "english": "bookcase",
+    "translate": "bookcase",
     "category": "dom"
   },
   {
     "id": 220,
     "polish": ["miska"],
-    "english": "bowl",
+    "translate": "bowl",
     "category": "dom"
   },
   {
     "id": 221,
     "polish": ["cegła"],
-    "english": "brick",
+    "translate": "brick",
     "category": "dom"
   },
   {
     "id": 222,
     "polish": ["budynek"],
-    "english": "building",
+    "translate": "building",
     "category": "dom"
   },
   {
     "id": 223,
     "polish": ["dom parterowy"],
-    "english": "bungalow",
+    "translate": "bungalow",
     "category": "dom"
   },
   {
     "id": 224,
     "polish": ["szafka"],
-    "english": "cabinet",
+    "translate": "cabinet",
     "category": "dom"
   },
   {
     "id": 225,
     "polish": ["centralne ogrzewanie"],
-    "english": "central heating",
+    "translate": "central heating",
     "category": "dom"
   },
   {
     "id": 226,
     "polish": ["zegar"],
-    "english": "clock",
+    "translate": "clock",
     "category": "dom"
   },
   {
     "id": 227,
     "polish": ["materiał", "tkanina", "ścierka", "obrus"],
-    "english": "cloth",
+    "translate": "cloth",
     "category": "dom"
   },
   {
     "id": 228,
     "polish": ["korytarz"],
-    "english": "corridor",
+    "translate": "corridor",
     "category": "dom"
   },
   {
     "id": 229,
     "polish": ["kosmetyki"],
-    "english": "cosmetics",
+    "translate": "cosmetics",
     "category": "dom"
   },
   {
     "id": 230,
     "polish": ["przytulny"],
-    "english": "cosy",
+    "translate": "cosy",
     "category": "dom"
   }
 ]

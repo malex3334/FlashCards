@@ -96,7 +96,7 @@ function FlashCardList() {
       <ul>
         {filteredData.length > 0 ? (
           filteredData
-            .sort((a, b) => a.translate.localeCompare(b.translate))
+            .sort((a, b) => a.translate?.localeCompare(b.translate))
             .map((item) => (
               <li
                 className="fs-5"

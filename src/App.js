@@ -41,14 +41,14 @@ function App() {
 
       {newCard && <FlashCardForm />}
 
-      <footer className="d-flex justify-content-center">
+      <footer className="d-flex justify-content-center ">
         <h5
-          className="text-info font-italic"
+          className="text-info font-italic "
           style={{
             fontSize: "15px",
             fontStyle: "italic",
             letterSpacing: "1.2px",
-            opacity: "0.7",
+            opacity: "0.9",
           }}
         >
           Copyrights M.A. {new Date().toLocaleDateString().slice(-4)} &copy;

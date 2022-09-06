@@ -76,7 +76,7 @@ function FlashCardList() {
   return (
     <div
       style={{ letterSpacing: "1.5px" }}
-      className={`shadow-sm p-5 mb-5 mt-2 rounded appear
+      className={`shadow-sm p-4 mb-5 mt-2 rounded appear
       ${dark ? "bg-dark text-light" : "bg-light text-dark"}`}
     >
       <div className="d-flex justify-content-center gap-3">

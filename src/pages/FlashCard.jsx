@@ -231,7 +231,7 @@ function FlashCard() {
 
   return (
     <div
-      className={` shadow p-3 mb-5 mt-0 mt-md-5 rounded
+      className={` shadow p-3 mt-0 mt-md-5 rounded
         ${dark ? "bg-dark" : "bg-light"}`}
     >
       <div className="d-flex align-items-center justify-content-around">
@@ -253,7 +253,7 @@ function FlashCard() {
             dark ? "text-light" : "text-dark"
           }`}
         >
-          <h1>Fiszki</h1>
+          <h1 style={{ margin: "0" }}>Fiszki</h1>
           {lang === "ENGLISH" ? (
             <UKFlag
               style={{ width: "80px", height: "80px", cursor: "pointer" }}
@@ -296,15 +296,22 @@ function FlashCard() {
           </button>
         )}
       </div>
-
+      <p
+        className={`fw-bold
+      ${dark ? "text-info" : "text-dark"}
+       text-center`}
+        style={{ letterSpacing: "2px" }}
+      >
+        Kliknij flagę by zmienić język fiszek
+      </p>
       <div
         className={`${
-          dark ? "text-light" : "text-dar"
-        } d-flex justify-content-around align-items-center m-4 border border-warning rounded-3 pt-2 flex-wrap `}
+          dark ? "text-light" : "text-dark"
+        } d-flex justify-content-around align-items-center m-4 border border-warning rounded-3  `}
       >
-        <h5>Punkty: {points}</h5>
-        <h5>Seria: {streak}</h5>
-        <h5>Najdłuższa seria: {bestStreak}</h5>
+        <p className="points">Punkty: {points}</p>
+        <p className="points">Seria: {streak}</p>
+        <p className="points">Najdłuższa seria: {bestStreak}</p>
       </div>
 
       {/* ########## FLASHCARD BODY ######### */}

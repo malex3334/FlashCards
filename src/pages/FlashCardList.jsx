@@ -64,6 +64,15 @@ function FlashCardList() {
     setCategoryName(id);
   };
 
+  useEffect(() => {
+    if (lang === "ENGLISH") {
+      localStorage.setItem("data", JSON.stringify(data));
+    }
+    if (lang === "SPANISH") {
+      localStorage.setItem("dataES", JSON.stringify(data));
+    }
+  }, [handleDelete]);
+
   return (
     <div
       style={{ letterSpacing: "1.5px" }}

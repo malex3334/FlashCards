@@ -32,9 +32,12 @@ function FlashCard() {
     setFilteredData,
     lang,
     setLang,
+    randomIndex,
+    i,
+    setI,
   } = useContext(DataContext);
   const [answer, setAnswer] = useState("");
-  const [i, setI] = useState(0);
+  // const [i, setI] = useState(0);
   const [points, setPoints] = useState(0);
   const [streak, setStreak] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -88,12 +91,6 @@ function FlashCard() {
     }, 1000);
   };
 
-  // get random flashcard index
-  const randomIndex = () => {
-    const newIndex = Math.floor(Math.random() * filteredData.length);
-    setI(newIndex);
-  };
-
   useEffect(() => {
     randomIndex();
   }, [setFilteredData, lang]);
@@ -122,10 +119,17 @@ function FlashCard() {
           !showAnswer &&
           !hint)
       ) {
+        // learning system ?????
+        filteredData.map((obj) => {
+          if (obj.translate === filteredData[i].translate) {
+            if (obj.complete) {
+              obj.complete += 1;
+            } else obj.complete = 1;
+          }
+        });
         setPoints((prev) => prev + 1);
         setStreak((prev) => prev + 1);
         handleSuccessAnimation();
-
         !mute && correctSound.play();
         randomIndex();
         // ANSWER CORRECT, ONLY HINT ON
@@ -332,9 +336,19 @@ function FlashCard() {
           <div className="d-flex align-items-center text-centered-text-white display-3">
             {!showAnswer && (
               <>
-                <p className="text-centered text-white display-3">
+                <div className="text-centered text-white display-3">
                   {filteredData.length > 0 ? (
-                    filteredData[i]?.translate
+                    <p>
+                      {filteredData[i]?.translate}
+                      <span className="points">
+                        {" "}
+                        (
+                        {filteredData[i]?.complete
+                          ? filteredData[i].complete
+                          : "0"}
+                        )
+                      </span>
+                    </p>
                   ) : (
                     <span
                       className={`display-5 ${
@@ -344,7 +358,7 @@ function FlashCard() {
                       brak fiszki
                     </span>
                   )}
-                </p>
+                </div>
                 <div className="button-container d-flex flex-column gap-1">
                   <button
                     onClick={handleShowAnswer}

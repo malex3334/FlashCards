@@ -24,7 +24,7 @@ export const handleLang = (language) => {
 
 export function ThemeProvider({ children }) {
   const [lang, setLang] = useState("ENGLISH");
-
+  const [i, setI] = useState(0);
   const [data, setData] = useState(handleLang(lang));
   // const [dark, setDark] = useState(true);
   const [dark, setDark] = useState(
@@ -41,6 +41,13 @@ export function ThemeProvider({ children }) {
   const [newCard, setNewCard] = useState(false);
   const [dictionary, setDictionary] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+
+  // get random flashcard index
+  const randomIndex = () => {
+    const newIndex = Math.floor(Math.random() * filteredData.length);
+    // prevent same index???
+    setI((prev) => (prev === newIndex ? newIndex : newIndex));
+  };
 
   // change theme
   const handleToggleTheme = () => {
@@ -79,6 +86,9 @@ export function ThemeProvider({ children }) {
         setFilteredData,
         lang,
         setLang,
+        randomIndex,
+        i,
+        setI,
       }}
     >
       {children}

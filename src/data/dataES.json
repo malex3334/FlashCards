@@ -58,5 +58,71 @@
     "polish": ["proszę"],
     "translate": "por favor",
     "category": "ogólna"
+  },
+  {
+    "id": 11,
+    "polish": ["śniadanie"],
+    "translate": "el desayuno",
+    "category": "ogólna"
+  },
+  {
+    "id": 12,
+    "polish": ["obiad"],
+    "translate": "el almuerzo",
+    "category": "ogólna"
+  },
+  {
+    "id": 13,
+    "polish": ["kolacja"],
+    "translate": "la cena",
+    "category": "ogólna"
+  },
+  {
+    "id": 14,
+    "polish": ["na zdrowie"],
+    "translate": "salud",
+    "category": "ogólna"
+  },
+  {
+    "id": 15,
+    "polish": ["owoce"],
+    "translate": "las frutas",
+    "category": "ogólna"
+  },
+  {
+    "id": 16,
+    "polish": ["zupa"],
+    "translate": "la sopa",
+    "category": "ogólna"
+  },
+  {
+    "id": 17,
+    "polish": ["cukier"],
+    "translate": "el azucar",
+    "category": "ogólna"
+  },
+  {
+    "id": 18,
+    "polish": ["sól"],
+    "translate": "la sal",
+    "category": "ogólna"
+  },
+  {
+    "id": 19,
+    "polish": ["chleb"],
+    "translate": "el pan",
+    "category": "ogólna"
+  },
+  {
+    "id": 20,
+    "polish": ["masło"],
+    "translate": "la mantequilla",
+    "category": "ogólna"
+  },
+  {
+    "id": 21,
+    "polish": ["woda"],
+    "translate": "el agua",
+    "category": "ogólna"
   }
 ]

@@ -31,7 +31,6 @@ function FlashCardList() {
     if (window.confirm("Na pewno zresetować bazę fiszek?")) {
       if (lang === "ENGLISH") {
         localStorage.removeItem("data");
-        // localStorage.setItem();
         setData(Data);
       }
       if (lang === "SPANISH") {

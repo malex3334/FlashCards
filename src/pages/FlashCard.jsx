@@ -189,8 +189,6 @@ function FlashCard() {
 
     // check answer
     isCorrect();
-    // get bew rabdin ubdex
-    // randomIndex();
     // focus on input
     answerInput.current.focus();
     // reset hint
@@ -219,10 +217,6 @@ function FlashCard() {
     answerInput.current.focus();
   };
 
-  // useEffect(() => {
-  //   fetchDescription(filteredData && filteredData[i]?.translate);
-  // }, [i, filteredData]);
-
   useEffect(() => {
     answerInput.current.focus();
   }, []);
@@ -237,7 +231,7 @@ function FlashCard() {
 
   return (
     <div
-      className={` shadow p-5 mb-5 mt-0 mt-md-5 rounded
+      className={` shadow p-3 mb-5 mt-0 mt-md-5 rounded
         ${dark ? "bg-dark" : "bg-light"}`}
     >
       <div className="d-flex align-items-center justify-content-around">
@@ -349,7 +343,7 @@ function FlashCard() {
                     onClick={handleShowAnswer}
                     className="btn btn-sm btn-warning ms-4 mb-1 "
                   >
-                    odpowiedź
+                    odp?
                   </button>
                 </div>
               </>

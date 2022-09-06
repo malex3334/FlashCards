@@ -6,7 +6,7 @@
 
 body {
   font-family: "Lato", sans-serif;
-  background-image: url("./utils/bg.png");
+  background-image: url("./utils/bg.webp");
   background-size: 100%;
   background-position: top;
   background-attachment: fixed scroll;
@@ -14,10 +14,10 @@ body {
 }
 
 .esp-bg {
-  background-image: url("./utils/bgESP.png");
+  background-image: url("./utils/bgESP.webp");
 }
 .eng-bg {
-  background-image: url("./utils/bg.png");
+  background-image: url("./utils/bg.webp");
 }
 
 /* .container {
